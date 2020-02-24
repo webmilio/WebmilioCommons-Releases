@@ -527,6 +527,18 @@
             <param name="type">The property type.</param>
             <returns>The <see cref="T:WebmilioCommons.Networking.Serializing.NetworkTypeSerializer"/> if found; otherwise <c>null</c>.</returns>
         </member>
+        <member name="T:WebmilioCommons.NPCs.IOverridesPlayerDeathMessage">
+            <summary>Allows you to implement custom logic intended to override the death message of a player when killed by an entity implementing this interface.</summary>
+        </member>
+        <member name="M:WebmilioCommons.NPCs.IOverridesPlayerDeathMessage.GetDeathMessage(Terraria.Player,System.Double,System.Int32,System.Boolean,Terraria.DataStructures.PlayerDeathReason)">
+            <summary>Allows you to override the death message for a player when killed by the entity implementing this method.</summary>
+            <param name="player"></param>
+            <param name="damage"></param>
+            <param name="hitDirection"></param>
+            <param name="pvp"></param>
+            <param name="damageSource"></param>
+            <returns>The custom death message.</returns>
+        </member>
         <member name="M:WebmilioCommons.Rarities.ModRarity.#ctor(System.Int32,System.Int32,Microsoft.Xna.Framework.Color)">
             <summary>Called when loading all <see cref="T:WebmilioCommons.Rarities.ModRarity"/>.</summary>
             <param name="lowerVanillaRarity">Fallback vanilla color in case the <see cref="T:WebmilioCommons.Rarities.ModRarityLoader"/> fails to load.</param>
