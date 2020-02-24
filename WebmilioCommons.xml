@@ -10,8 +10,42 @@
             Under no circumstances should you load an achievement that is already loaded.
             </summary>
         </member>
+        <member name="T:WebmilioCommons.Achievements.ModAchievement">
+            <summary>This class serves as the public surface linking the vanilla achievement system and the modded achievement system together.</summary>
+        </member>
+        <member name="F:WebmilioCommons.Achievements.ModAchievement.DEFAULT_COMPLETION_FLAG">
+            <summary>The name of the default completion flag.</summary>
+        </member>
+        <member name="M:WebmilioCommons.Achievements.ModAchievement.#ctor(System.String,System.String,Terraria.Achievements.AchievementCategory)">
+            <summary></summary>
+            <param name="name">The displayed name for the achievement.</param>
+            <param name="description">The displayed description for the achievement.</param>
+            <param name="category">The vanilla category under to which this achievement belongs.</param>
+        </member>
+        <member name="M:WebmilioCommons.Achievements.ModAchievement.SetDefaults">
+            <summary>Called after the current object has been instantiated. You want to add your achievement conditions here.</summary>
+        </member>
+        <member name="M:WebmilioCommons.Achievements.ModAchievement.AddCondition(Terraria.Achievements.AchievementCondition)">
+            <summary>Add a condition for achievement completion.</summary>
+            <param name="condition">The condition to add.</param>
+        </member>
+        <member name="M:WebmilioCommons.Achievements.ModAchievement.AddConditions(Terraria.Achievements.AchievementCondition[])">
+            <summary>Add multiple conditions for achievement completion.</summary>
+            <param name="conditions">The conditions to add.</param>
+        </member>
         <member name="M:WebmilioCommons.Achievements.ModAchievement.AddCompletionFlag">
-            <summary>Adds a default completion flag to be manually trigger with <see cref="M:WebmilioCommons.Achievements.ModAchievement.CompleteFlag"/>.</summary>
+            <summary>Adds a default completion flag to be manually triggered with <see cref="M:WebmilioCommons.Achievements.ModAchievement.CompleteFlag"/>.</summary>
+        </member>
+        <member name="M:WebmilioCommons.Achievements.ModAchievement.AddCompletionFlag(System.String)">
+            <summary>Adds a named completion flag to be manually triggered with <see cref="M:WebmilioCommons.Achievements.ModAchievement.CompleteFlag"/>.</summary>
+            <param name="flag">The name of the flag.</param>
+        </member>
+        <member name="M:WebmilioCommons.Achievements.ModAchievement.CompleteFlag">
+            <summary>Completes the default completion flag.</summary>
+        </member>
+        <member name="M:WebmilioCommons.Achievements.ModAchievement.CompleteFlag(System.String)">
+            <summary>Completes the specified named completion flag.</summary>
+            <param name="flag">The name of the completion flag.</param>
         </member>
         <member name="M:WebmilioCommons.Achievements.ModAchievement.CompleteFlag(Terraria.Player)">
             <summary>Completes the default completion flag if the given player is the local player.</summary>
@@ -20,6 +54,110 @@
             <summary>Completes the specified flag if the given player is the local player.</summary>
             <param name="player"></param>
             <param name="flag"></param>
+        </member>
+        <member name="M:WebmilioCommons.Achievements.ModAchievement.AddTracker">
+            <summary>Adds a tracker to the achievement, requiring a certain amount of tasks to be completed.</summary>
+        </member>
+        <member name="M:WebmilioCommons.Achievements.ModAchievement.CompleteFlag``1">
+            <summary>Completes the default completion flag for the specified type.</summary>
+            <typeparam name="T">The type of the <see cref="T:WebmilioCommons.Achievements.ModAchievement"/> to complete.</typeparam>
+        </member>
+        <member name="M:WebmilioCommons.Achievements.ModAchievement.CompleteFlag``1(Terraria.Player)">
+            <summary>Completes the default completion flag of the specified type for the specified player.</summary>
+            <typeparam name="T">The type of the <see cref="T:WebmilioCommons.Achievements.ModAchievement"/> to complete.</typeparam>
+            <param name="player">The player for whom to complete said flag.</param>
+        </member>
+        <member name="M:WebmilioCommons.Achievements.ModAchievement.CompleteFlag``1(System.String)">
+            <summary>Completes the given completion flag for the specified type.</summary>
+            <typeparam name="T">The type of the <see cref="T:WebmilioCommons.Achievements.ModAchievement"/> to complete.</typeparam>
+            <param name="flag">The name of the completion flag.</param>
+        </member>
+        <member name="M:WebmilioCommons.Achievements.ModAchievement.CompleteFlag``1(Terraria.Player,System.String)">
+            <summary>Completes the given completion flag of the specified type for the given player.</summary>
+            <typeparam name="T">The type of the <see cref="T:WebmilioCommons.Achievements.ModAchievement"/> to complete.</typeparam>
+            <param name="player">The player for whom to complete said flag.</param>
+            <param name="flag">The name of the completion flag.</param>
+        </member>
+        <member name="M:WebmilioCommons.Achievements.ModAchievement.CompleteFlagFor(System.String)">
+            <summary>Completes the default completion flag for the given achievement.</summary>
+            <param name="name">The name of the achievement.</param>
+        </member>
+        <member name="M:WebmilioCommons.Achievements.ModAchievement.CompleteFlagFor(Terraria.Player,System.String)">
+            <summary>Completes the default completion flag of the given achievement for the given player.</summary>
+            <param name="player">The player for whom to complete said flag.</param>
+            <param name="name">The name of the achievement.</param>
+        </member>
+        <member name="M:WebmilioCommons.Achievements.ModAchievement.CompleteFlagFor(System.String,System.String)">
+            <summary>Completes the default completion flag of the given achievement for the given player.</summary>
+            <param name="name">The name of the achievement.</param>
+            <param name="flag">The name of the completion flag.</param>
+        </member>
+        <member name="M:WebmilioCommons.Achievements.ModAchievement.CompleteFlagFor(System.String,Terraria.Player,System.String)">
+            <summary>Completes the specified completion flag of the given achievement for the given player.</summary>
+            <param name="name">The name of the achievement.</param>
+            <param name="player">The player for whom to complete said flag.</param>
+            <param name="flag">The name of the completion flag.</param>
+        </member>
+        <member name="P:WebmilioCommons.Achievements.ModAchievement.Name">
+            <summary>The displayed name for the achievement.</summary>
+        </member>
+        <member name="P:WebmilioCommons.Achievements.ModAchievement.Description">
+            <summary>The displayed description for the achievement.</summary>
+        </member>
+        <member name="P:WebmilioCommons.Achievements.ModAchievement.Category">
+            <summary>The vanilla category under which the achievement falls.</summary>
+        </member>
+        <member name="P:WebmilioCommons.Achievements.ModAchievement.TexturePath">
+            <summary>The path to the texture for the achievement.</summary>
+        </member>
+        <member name="P:WebmilioCommons.Achievements.ModAchievement.Autoload">
+            <summary>true if the achievement be automatically created upon loading all <see cref="T:WebmilioCommons.Achievements.ModAchievement"/>.</summary>
+        </member>
+        <member name="P:WebmilioCommons.Achievements.ModAchievement.Mod">
+            <summary>The mod from which this <see cref="T:WebmilioCommons.Achievements.ModAchievement"/> originates.</summary>
+        </member>
+        <member name="P:WebmilioCommons.Achievements.ModAchievement.GameAchievement">
+            <summary>The vanilla category under to which this achievement belongs.</summary>
+        </member>
+        <member name="F:WebmilioCommons.Commons.ManagedResource.original">
+            <summary>Original ticks.</summary>
+        </member>
+        <member name="F:WebmilioCommons.Commons.ManagedResource.remaining">
+            <summary>Remaining ticks before expiration.</summary>
+        </member>
+        <member name="M:WebmilioCommons.Commons.ResourceManager.Finalize">
+            <summary>Allows an object to try to free resources and perform other cleanup operations before it is reclaimed by garbage collection.</summary>
+        </member>
+        <member name="M:WebmilioCommons.Commons.ResourceManager.Get(System.Predicate{System.IDisposable})">
+            <summary>Fetches an existing instance of a resource.</summary>
+            <param name="match">The match filter for the resource.</param>
+            <returns>The instance matching the filter; otherwise <c>null</c> if not found.</returns>
+        </member>
+        <member name="M:WebmilioCommons.Commons.ResourceManager.GetOrCreate(System.Predicate{System.IDisposable},System.Func{System.IDisposable},System.Int32)">
+            <summary>Fetches an existing instance of a resource or creates it if it doesn't exist.</summary>
+            <param name="match">The filter for the resource.</param>
+            <param name="create">The creation method for the resource.</param>
+            <param name="ticksToLive">How long the resource should be kept in memory after its last use, in ticks (1 tick = 1/60 of a second).</param>
+            <returns>The instance matching the filter or the created instance, depending on the <paramref name="create"/> parameter; otherwise <c>null</c> if not found.</returns>
+        </member>
+        <member name="M:WebmilioCommons.Commons.ResourceManager.Get``1(System.Predicate{``0})">
+            <summary>Fetches an existing instance of a resource.</summary>
+            <typeparam name="T">The type of resource to find.</typeparam>
+            <param name="match"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebmilioCommons.Commons.ResourceManager.GetOrCreate``1(System.Predicate{``0},System.Func{``0},System.Int32)">
+            <summary>Fetches an existing instance of a resource or creates it if it doesn't exist.</summary>
+            <typeparam name="T">The type of resource to look for.</typeparam>
+            <param name="match">The filter for the resource. If <c>default</c>, will find the first instance of the given type.</param>
+            <param name="create">The creation method for the resource.</param>
+            <param name="ticksToLive">How long the resource should be kept in memory after its last use, in ticks (1 tick = 1/60 of a second).</param>
+            <returns>The instance matching the filter or the created instance, depending on the <paramref name="create"/> parameter; otherwise <c>null</c> if not found.</returns>
+        </member>
+        <member name="M:WebmilioCommons.Commons.ResourceManager.ShouldPrune(System.IDisposable)">
+            <summary>Checks wether the resource should be disposed of next tick.</summary>
+            <param name="disposable">The resource to verify.</param>
+            <returns><c>true</c> if the resource should be disposed of; otherwise <c>false</c>.</returns>
         </member>
         <member name="M:WebmilioCommons.Extensions.EntityExtensions.IsImmobile(Terraria.Entity,System.Boolean,System.Int32)">
             <summary></summary>
@@ -73,13 +211,86 @@
         <member name="M:WebmilioCommons.Loaders.Loader`1.PostLoad">
             <summary>Called at the end of <see cref="M:WebmilioCommons.Loaders.Loader`1.TryLoad"/>.</summary>
         </member>
+        <member name="M:WebmilioCommons.Loaders.Loader`1.PreUnload">
+            <summary>Called at the very beginning of the <see cref="M:WebmilioCommons.Loaders.Loader`1.Unload"/> method.</summary>
+        </member>
+        <member name="M:WebmilioCommons.Loaders.Loader`1.PostUnload">
+            <summary>Called at the very end of the <see cref="M:WebmilioCommons.Loaders.Loader`1.Unload"/> method.</summary>
+        </member>
+        <member name="M:WebmilioCommons.Loaders.Loader`1.Add(Terraria.ModLoader.Mod,`0)">
+            <summary>
+            Add an generic instance to the loaded items.
+            If <typeparamref name="T"/> implements <see cref="T:WebmilioCommons.Managers.IHasUnlocalizedName"/>, it will also register it using <see cref="P:WebmilioCommons.Managers.IHasUnlocalizedName.UnlocalizedName"/>.
+            </summary>
+            <param name="mod">The <see cref="T:Terraria.ModLoader.Mod"/> from which the item comes.</param>
+            <param name="item">A generic instance.</param>
+            <returns></returns>
+        </member>
         <member name="M:WebmilioCommons.Loaders.Loader`1.PostAdd(Terraria.ModLoader.Mod,`0)">
             <summary>Called after each time a subclass is added to the generic instances database.</summary>
             <param name="mod">The mod from which the generic instance originates.</param>
             <param name="item">A generic instances created via <see cref="M:System.Activator.CreateInstance(System.Type)"/>.</param>
         </member>
+        <member name="M:WebmilioCommons.Loaders.Loader`1.PostAdd(Terraria.ModLoader.Mod,`0,System.Type)">
+            <summary>Called after each time a subclass is added to the generic instances database.</summary>
+            <param name="mod">The <see cref="T:Terraria.ModLoader.Mod"/> from which the generic instance originates.</param>
+            <param name="item">A generic instance.</param>
+            <param name="type">The <see cref="T:System.Type"/> from which the generic instance was created.</param>
+        </member>
+        <member name="M:WebmilioCommons.Loaders.Loader`1.New(System.Int32)">
+            <summary>Creates a new instance of the requested type.</summary>
+            <param name="id">The auto-assigned Id of the generic instance.</param>
+            <returns>The newly instantiated type.</returns>
+        </member>
+        <member name="M:WebmilioCommons.Loaders.Loader`1.New``1">
+            <summary>Creates a new instance of the requested type.</summary>
+            <typeparam name="TType">The type of the generic instance to create; must be a child of <typeparamref name="T"/> and a non-abstract <c>class</c>.</typeparam>
+            <returns>The newly instantiated object.</returns>
+        </member>
+        <member name="M:WebmilioCommons.Loaders.Loader`1.New(System.String)">
+            <summary>Creates a new instance of the requested type.</summary>
+            <param name="unlocalizedName">
+            The corresponding value for <see cref="P:WebmilioCommons.Managers.IHasUnlocalizedName.UnlocalizedName"/> of the desired type.
+            <typeparamref name="T"/> must implement <see cref="T:WebmilioCommons.Managers.IHasUnlocalizedName"/>.
+            </param>
+            <returns>The newly instantiated object if <see cref="P:WebmilioCommons.Loaders.Loader`1.TypeHasUnlocalizedName"/>; otherwise <c>default</c>.</returns>
+        </member>
+        <member name="M:WebmilioCommons.Loaders.Loader`1.GetId(`0)">
+            <summary>Gets the Id of the generic instance of the same type as the one provided.</summary>
+            <param name="item">The type of the generic instance.</param>
+            <returns>The Id of the generic instance.</returns>
+        </member>
+        <member name="M:WebmilioCommons.Loaders.Loader`1.GetId(System.Type)">
+            <summary>Gets the Id of the generic instance of the same type as the one provided.</summary>
+            <param name="type">The type of the generic instance.</param>
+            <returns>The Id of the generic instance.</returns>
+        </member>
+        <member name="M:WebmilioCommons.Loaders.Loader`1.GetId``1">
+            <summary>Gets the Id of the generic instance of the same type as the one provided.</summary>
+            <typeparam name="TType">The type of the generic instance.</typeparam>
+            <returns>The Id of the generic instance.</returns>
+        </member>
+        <member name="M:WebmilioCommons.Loaders.Loader`1.GetId(System.String)">
+            <summary>
+            Gets the Id of the generic instance with the provided unlocalized name.
+            <see cref="P:WebmilioCommons.Loaders.Loader`1.TypeHasUnlocalizedName"/> must be true.
+            </summary>
+            <param name="unlocalizedName">The unlocalized name of the generic instance.</param>
+            <returns>The Id of the generic instance if found; otherwise <c>default</c>.</returns>
+        </member>
+        <member name="M:WebmilioCommons.Loaders.Loader`1.FindGeneric(System.Predicate{`0})">
+            <summary>Searches for a generic instance that matches the conditions defined by the specified predicate.</summary>
+            <param name="condition">The <see cref="T:System.Predicate`1"/> delegate that defines the conditions of the generic instance to search for.</param>
+            <returns>The generic instance that matches the conditions defined by the specified predicate, if found; otherwise, the default value for type T.</returns>
+        </member>
         <member name="P:WebmilioCommons.Loaders.Loader`1.Count">
             <summary>How many subtypes of <see cref="!:T"/> have been loaded.</summary>
+        </member>
+        <member name="P:WebmilioCommons.Loaders.Loader`1.FirstIndex">
+            <summary>The first auto-assigned Id given to the generic instances.</summary>
+        </member>
+        <member name="P:WebmilioCommons.Loaders.Loader`1.NextIndex">
+            <summary>The next auto-assigned Id for the next added generic instance.</summary>
         </member>
         <member name="P:WebmilioCommons.Loaders.SingletonLoader`2.Instance">
             <summary>Unique TYPE instance (two same <see cref="!:TLoader"/> will have the same instance), instantiated and loaded upon first call.</summary>
@@ -118,6 +329,26 @@
         </member>
         <member name="P:WebmilioCommons.Managers.SingletonManager`2.Instance">
             <summary>Unique TYPE instance (two same <see cref="!:TManager"/> will have the same instance), instantiated and initialized upon first call.</summary>
+        </member>
+        <member name="M:WebmilioCommons.WebmilioCommonsMod.Load">
+            <summary></summary>
+        </member>
+        <member name="M:WebmilioCommons.WebmilioCommonsMod.PostSetupContent">
+            <summary></summary>
+        </member>
+        <member name="M:WebmilioCommons.WebmilioCommonsMod.Unload">
+            <summary></summary>
+        </member>
+        <member name="M:WebmilioCommons.WebmilioCommonsMod.HandlePacket(System.IO.BinaryReader,System.Int32)">
+            <summary></summary>
+            <param name="reader"></param>
+            <param name="whoAmI"></param>
+        </member>
+        <member name="M:WebmilioCommons.WebmilioCommonsMod.PostUpdateInput">
+            <summary></summary>
+        </member>
+        <member name="P:WebmilioCommons.WebmilioCommonsMod.Instance">
+            <summary>The current loaded instance of <see cref="T:WebmilioCommons.WebmilioCommonsMod"/>.</summary>
         </member>
         <member name="M:WebmilioCommons.Networking.NetworkPacketLoader.PostUnload">
             <summary></summary>
@@ -186,13 +417,13 @@
             <summary>Called before the packet is resent (in cases where it should). Useful for defining custom behavior that needs to be replicated on all clients.</summary>
             <param name="reader"></param>
             <param name="fromWho">The packet's sender.</param>
-            <returns><c>true</c>to continue with the execution of the <see cref="M:WebmilioCommons.Networking.Packets.NetworkPacket.Receive(System.IO.BinaryReader,System.Int32)"/> method; otherwise <c>false</c>.</returns>
+            <returns><c>true</c> to continue with the execution of the <see cref="M:WebmilioCommons.Networking.Packets.NetworkPacket.Receive(System.IO.BinaryReader,System.Int32)"/> method; otherwise <c>false</c>.</returns>
         </member>
         <member name="M:WebmilioCommons.Networking.Packets.NetworkPacket.PostReceive(System.IO.BinaryReader,System.Int32)">
             <summary>Called after the <see cref="M:WebmilioCommons.Networking.Packets.NetworkPacket.Receive(System.IO.BinaryReader,System.Int32)"/> method is done (all values are assigned and packet has been resent if necessary).</summary>
             <param name="reader"></param>
             <param name="fromWho">The packet's sender.</param>
-            <returns></returns>
+            <returns><c>true</c> if the method was successfully executed; otherwise <c>false</c>.</returns>
         </member>
         <member name="M:WebmilioCommons.Networking.Packets.NetworkPacket.PreAssignValues(System.Nullable{System.Int32}@,System.Nullable{System.Int32}@)">
             <summary>Executed before <see cref="M:WebmilioCommons.Networking.Packets.NetworkPacket.AssignInitialValues(System.Nullable{System.Int32}@,System.Nullable{System.Int32}@)"/> is called. Do not override this unless you know what you're doing.</summary>
@@ -204,6 +435,24 @@
             <param name="fromWho"></param>
             <param name="toWho"></param>
         </member>
+        <member name="M:WebmilioCommons.Networking.Packets.NetworkPacket.PrePopulatePacket(Terraria.ModLoader.ModPacket,System.Int32@,System.Int32@)">
+            <summary>
+            Called before <see cref="M:WebmilioCommons.Networking.Packets.NetworkPacket.PopulatePacket(Terraria.ModLoader.ModPacket,System.Nullable{System.Int32},System.Nullable{System.Int32})"/>. Assigns the values used during <see cref="M:WebmilioCommons.Networking.Packets.NetworkPacket.PopulatePacket(Terraria.ModLoader.ModPacket,System.Nullable{System.Int32},System.Nullable{System.Int32})"/>.
+            Only modify this method if you know what you're doing.
+            </summary>
+            <param name="modPacket"></param>
+            <param name="fromWho"></param>
+            <param name="toWho"></param>
+        </member>
+        <member name="M:WebmilioCommons.Networking.Packets.NetworkPacket.PopulatePacket(Terraria.ModLoader.ModPacket,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Reads the properties' values and feeds them to the packet.
+            Only modify this method if you know what you're doing.
+            </summary>
+            <param name="modPacket"></param>
+            <param name="fromWho"></param>
+            <param name="toWho"></param>
+        </member>
         <member name="M:WebmilioCommons.Networking.Packets.NetworkPacket.Send(System.Nullable{System.Int32},System.Nullable{System.Int32})">
             <summary>
             The entire logic for sending packets.
@@ -212,18 +461,71 @@
             <param name="fromWho">The packet's sender.</param>
             <param name="toWho">The packet's receiver.</param>
         </member>
+        <member name="M:WebmilioCommons.Networking.Packets.NetworkPacket.PreSend(Terraria.ModLoader.ModPacket,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>Called before <see cref="M:WebmilioCommons.Networking.Packets.NetworkPacket.Send(System.Nullable{System.Int32},System.Nullable{System.Int32})"/> and after <see cref="M:WebmilioCommons.Networking.Packets.NetworkPacket.AssignInitialValues(System.Nullable{System.Int32}@,System.Nullable{System.Int32}@)"/>.</summary>
+            <param name="modPacket"></param>
+            <param name="fromWho"></param>
+            <param name="toWho"></param>
+            <returns><c>true</c> to continue into <see cref="M:WebmilioCommons.Networking.Packets.NetworkPacket.Send(System.Nullable{System.Int32},System.Nullable{System.Int32})"/>, <c>false</c> to stop. Returns <c>true</c> by default.</returns>
+        </member>
+        <member name="M:WebmilioCommons.Networking.Packets.NetworkPacket.PostSend(Terraria.ModLoader.ModPacket,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>Called after <see cref="M:WebmilioCommons.Networking.Packets.NetworkPacket.Send(System.Nullable{System.Int32},System.Nullable{System.Int32})"/>.</summary>
+            <param name="modPacket"></param>
+            <param name="fromWho"></param>
+            <param name="toWho"></param>
+        </member>
         <member name="M:WebmilioCommons.Networking.Packets.NetworkPacket.MakePacket">
             <summary>Standard packet instance creation.</summary>
             <returns>An instance of <see cref="T:Terraria.ModLoader.ModPacket"/> with an auto-generated ID.</returns>
         </member>
         <member name="M:WebmilioCommons.Networking.Packets.NetworkPacket.AddAllProperties">
-            <summary>Parses the current class's properties into the cache for sending and receiving.</summary>
+            <summary>Reflect the current class's properties into the cache for sending and receiving.</summary>
+        </member>
+        <member name="M:WebmilioCommons.Networking.Packets.NetworkPacket.AddAllProperties(System.Type)">
+            <summary>Reflect through all the given properties of a type and cache them.</summary>
+            <param name="type">The tyoe to reflect through.</param>
         </member>
         <member name="P:WebmilioCommons.Networking.Packets.NetworkPacket.Mod">
             <summary>The <see cref="P:WebmilioCommons.Networking.Packets.NetworkPacket.Mod"/> to which this packet belongs to. Initialized after the constructor has been called.</summary>
         </member>
         <member name="P:WebmilioCommons.Networking.Packets.NetworkPacket.Id">
             <summary>The ushort type of the packet, automatically assigned after the constructor has been called.</summary>
+        </member>
+        <member name="T:WebmilioCommons.Networking.Serializing.NetworkTypeSerializers">
+            <summary>Class which manages the different serialization/deserialization methods for the <see cref="T:WebmilioCommons.Networking.NetworkPacketLoader"/> and <see cref="T:WebmilioCommons.Networking.Packets.NetworkPacket"/>.</summary>
+        </member>
+        <member name="M:WebmilioCommons.Networking.Serializing.NetworkTypeSerializers.AddSerializer``1(WebmilioCommons.Networking.Serializing.NetworkTypeSerializer)">
+            <summary>Add a network property serializer for the given type. Must be called in your <see cref="M:Terraria.ModLoader.Mod.Load"/> method.</summary>
+            <typeparam name="T">The property type.</typeparam>
+            <param name="serializer">The serializer (reader/writer) for the type.</param>
+        </member>
+        <member name="M:WebmilioCommons.Networking.Serializing.NetworkTypeSerializers.AddSerializer(System.Type,WebmilioCommons.Networking.Serializing.NetworkTypeSerializer)">
+            <summary>Add a network property serializer for the given type. Must be called in your <see cref="M:Terraria.ModLoader.Mod.Load"/> method.</summary>
+            <param name="type">The property type.</param>
+            <param name="serializer">The serializer (reader/writer) for the type.</param>
+        </member>
+        <member name="M:WebmilioCommons.Networking.Serializing.NetworkTypeSerializers.AddSerializers(System.Collections.Generic.Dictionary{System.Type,WebmilioCommons.Networking.Serializing.NetworkTypeSerializer})">
+            <summary>Add a range of property serializers for their given types. Must be called in your <see cref="M:Terraria.ModLoader.Mod.Load"/> method.</summary>
+        </member>
+        <member name="M:WebmilioCommons.Networking.Serializing.NetworkTypeSerializers.Has``1">
+            <summary>Check if there is a serializer defined for a type.</summary>
+            <typeparam name="T">The property type.</typeparam>
+            <returns><c>true</c> if there is a serializer for the type; otherwise false.</returns>
+        </member>
+        <member name="M:WebmilioCommons.Networking.Serializing.NetworkTypeSerializers.Has(System.Type)">
+            <summary>Check if there is a serializer defined for a type.</summary>
+            <param name="type">The property type.</param>
+            <returns><c>true</c> if there is a serializer for the type; otherwise false.</returns>
+        </member>
+        <member name="M:WebmilioCommons.Networking.Serializing.NetworkTypeSerializers.Get``1">
+            <summary>Fetch a property serializer.</summary>
+            <typeparam name="T">The property type.</typeparam>
+            <returns>The <see cref="T:WebmilioCommons.Networking.Serializing.NetworkTypeSerializer"/> if found; otherwise <c>null</c>.</returns>
+        </member>
+        <member name="M:WebmilioCommons.Networking.Serializing.NetworkTypeSerializers.Get(System.Type)">
+            <summary>Fetch a property serializer.</summary>
+            <param name="type">The property type.</param>
+            <returns>The <see cref="T:WebmilioCommons.Networking.Serializing.NetworkTypeSerializer"/> if found; otherwise <c>null</c>.</returns>
         </member>
         <member name="M:WebmilioCommons.Rarities.ModRarity.#ctor(System.Int32,System.Int32,Microsoft.Xna.Framework.Color)">
             <summary>Called when loading all <see cref="T:WebmilioCommons.Rarities.ModRarity"/>.</summary>
@@ -272,6 +574,11 @@
             <param name="first"></param>
             <param name="second"></param>
             <returns></returns>
+        </member>
+        <member name="M:WebmilioCommons.Worlds.Generation.Structures.WorldStructure.Generate(System.Int32,System.Int32)">
+            <summary>Generates the structure from the top-left to the bottom-right starting at the given coordinates.</summary>
+            <param name="x">The X coordinate of the origin tile..</param>
+            <param name="y">The Y coordinate of the origin tile.</param>
         </member>
     </members>
 </doc>
