@@ -555,6 +555,28 @@
         <member name="P:WebmilioCommons.Rarities.ModRarity.LowerVanillaRarity">
             <summary>Used in comparing two different rarity IDs and fallback rarity ID in case the <see cref="T:WebmilioCommons.Rarities.ModRarityLoader"/> crashes.</summary>
         </member>
+        <member name="M:WebmilioCommons.Rarities.ModRarityLoader.PreLoad">
+            <inheritdoc />
+        </member>
+        <member name="M:WebmilioCommons.Rarities.ModRarityLoader.PostLoad">
+            <inheritdoc />
+        </member>
+        <member name="M:WebmilioCommons.Rarities.ModRarityLoader.PreUnload">
+            <inheritdoc />
+        </member>
+        <member name="M:WebmilioCommons.Rarities.ModRarityLoader.GetRarity``1">
+            <summary>Gets the <see cref="T:WebmilioCommons.Rarities.ModRarity"/> instance corresponding to the specified type.</summary>
+            <typeparam name="T">The type of rarity.</typeparam>
+            <returns>The <see cref="T:WebmilioCommons.Rarities.ModRarity"/> from the loaded rarities if found; otherwise <c>null</c>.</returns>
+        </member>
+        <member name="M:WebmilioCommons.Rarities.ModRarityLoader.RarityType``1">
+            <summary>Gets the rarity id of the given type.</summary>
+            <typeparam name="T">The rarity type.</typeparam>
+            <returns></returns>
+        </member>
+        <member name="P:WebmilioCommons.Rarities.ModRarityLoader.HookingSuccessful">
+            <summary><c>true</c> if the loader successfully hooked into the game's IL; otherwise <c>false</c>.</summary>
+        </member>
         <member name="P:WebmilioCommons.Tiles.BetterGlobalTile.MiningLookupRange">
             <summary>The maximum range for which to trigger CanKillTile with Player. Set to -1 to not have a distance limit. Default is 25.</summary>
         </member>
