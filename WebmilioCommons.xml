@@ -283,6 +283,9 @@
             <param name="condition">The <see cref="T:System.Predicate`1"/> delegate that defines the conditions of the generic instance to search for.</param>
             <returns>The generic instance that matches the conditions defined by the specified predicate, if found; otherwise, the default value for type T.</returns>
         </member>
+        <member name="P:WebmilioCommons.Loaders.Loader`1.Generics">
+            <summary>An <see cref="T:System.Collections.Generic.IEnumerable`1"/> that contains all instances created during load (generics).</summary>
+        </member>
         <member name="P:WebmilioCommons.Loaders.Loader`1.Count">
             <summary>How many subtypes of <see cref="!:T"/> have been loaded.</summary>
         </member>
@@ -350,6 +353,23 @@
         <member name="P:WebmilioCommons.WebmilioCommonsMod.Instance">
             <summary>The current loaded instance of <see cref="T:WebmilioCommons.WebmilioCommonsMod"/>.</summary>
         </member>
+        <member name="T:WebmilioCommons.Networking.NetworkPacketBehavior">
+            <summary>The different behaviors for network packets.</summary>
+        </member>
+        <member name="F:WebmilioCommons.Networking.NetworkPacketBehavior.SendToClient">
+            <summary>Sends directly to the specified client (toWho).</summary>
+        </member>
+        <member name="F:WebmilioCommons.Networking.NetworkPacketBehavior.SendToAllClients">
+            <summary>
+            Sends to all clients using the server as a bounce, but <see cref="M:WebmilioCommons.Networking.Packets.NetworkPacket.MidReceive(System.IO.BinaryReader,System.Int32)"/> and <see cref="M:WebmilioCommons.Networking.Packets.NetworkPacket.PostReceive(System.IO.BinaryReader,System.Int32)"/> are not executed on the server (automatically resent).
+            In the case of the server, the two aformentioned methods will always return <c>true</c>.</summary>
+        </member>
+        <member name="F:WebmilioCommons.Networking.NetworkPacketBehavior.SendToServer">
+            <summary>Sends the packet only to the server (not resent).</summary>
+        </member>
+        <member name="F:WebmilioCommons.Networking.NetworkPacketBehavior.SendToAll">
+            <summary>Sends to all clients using the server as a bounce (automatically resent).</summary>
+        </member>
         <member name="M:WebmilioCommons.Networking.NetworkPacketLoader.PostUnload">
             <summary></summary>
         </member>
@@ -412,6 +432,14 @@
             <param name="reader"></param>
             <param name="fromWho">The packet's sender.</param>
             <returns><c>true</c>to continue with the execution of the <see cref="M:WebmilioCommons.Networking.Packets.NetworkPacket.Receive(System.IO.BinaryReader,System.Int32)"/> method; otherwise <c>false</c>.</returns>
+        </member>
+        <member name="M:WebmilioCommons.Networking.Packets.NetworkPacket.ExecuteIfShould(System.IO.BinaryReader,System.Int32,WebmilioCommons.Networking.Packets.NetworkPacket.ReceiveMethod,System.Boolean)">
+            <summary>Executes a provided receiver method if the <see cref="P:WebmilioCommons.Networking.Packets.NetworkPacket.Behavior"/> of the method implies it.</summary>
+            <param name="reader"></param>
+            <param name="fromWho"></param>
+            <param name="method">The receiver method to execute if it should.</param>
+            <param name="returnIfNotExecute">The value to return if the method wasn't executed.</param>
+            <returns><c>true</c> if <paramref name="method"/> returned <c>true</c>; <paramref name="returnIfNotExecute"/> if the method wasn't executed; otherwise <c>false</c>.</returns>
         </member>
         <member name="M:WebmilioCommons.Networking.Packets.NetworkPacket.MidReceive(System.IO.BinaryReader,System.Int32)">
             <summary>Called before the packet is resent (in cases where it should). Useful for defining custom behavior that needs to be replicated on all clients.</summary>
@@ -490,6 +518,15 @@
         </member>
         <member name="P:WebmilioCommons.Networking.Packets.NetworkPacket.Id">
             <summary>The ushort type of the packet, automatically assigned after the constructor has been called.</summary>
+        </member>
+        <member name="P:WebmilioCommons.Networking.Packets.NetworkPacket.Behavior">
+            <summary>The packet's behavior. See <see cref="T:WebmilioCommons.Networking.NetworkPacketBehavior"/>'s documentation for more information.</summary>
+        </member>
+        <member name="P:WebmilioCommons.Networking.Packets.NetworkPacket.ContextEntity">
+            <summary>The entity to which this instance pertains.</summary>
+        </member>
+        <member name="P:WebmilioCommons.Networking.Packets.NetworkPacket.ReflectedPropertyInfos">
+            <summary>Don't touch this if you don't know what it does.</summary>
         </member>
         <member name="T:WebmilioCommons.Networking.Serializing.NetworkTypeSerializers">
             <summary>Class which manages the different serialization/deserialization methods for the <see cref="T:WebmilioCommons.Networking.NetworkPacketLoader"/> and <see cref="T:WebmilioCommons.Networking.Packets.NetworkPacket"/>.</summary>
@@ -580,12 +617,59 @@
         <member name="P:WebmilioCommons.Tiles.BetterGlobalTile.MiningLookupRange">
             <summary>The maximum range for which to trigger CanKillTile with Player. Set to -1 to not have a distance limit. Default is 25.</summary>
         </member>
+        <member name="M:WebmilioCommons.Time.TimeAlterationRequest.#ctor">
+            <summary>Instantiates an empty standard <see cref="T:WebmilioCommons.Time.TimeAlterationRequest"/>.</summary>
+        </member>
+        <member name="M:WebmilioCommons.Time.TimeAlterationRequest.#ctor(Terraria.Player,System.Int32,System.Int32)">
+            <summary>Instantiates a standard <see cref="T:WebmilioCommons.Time.TimeAlterationRequest"/>.</summary>
+            <param name="player">The player who initiated the time alteration.</param>
+            <param name="duration">How long the time alteration should last.</param>
+            <param name="tickRate">The rate at which the world ticks for everything else than the source. Only tick rates of 0 or 1 are supposed as of yet.</param>
+        </member>
+        <member name="M:WebmilioCommons.Time.TimeAlterationRequest.#ctor(Terraria.NPC,System.Int32,System.Int32)">
+            <summary>Instantiates a standard <see cref="T:WebmilioCommons.Time.TimeAlterationRequest"/>.</summary>
+            <param name="npc">The player who initiated the time alteration.</param>
+            <param name="duration">How long the time alteration should last.</param>
+            <param name="tickRate">The rate at which the world ticks for everything else than the source. Only tick rates of 0 or 1 are supposed as of yet.</param>
+        </member>
+        <member name="M:WebmilioCommons.Time.TimeAlterationRequest.#ctor(Terraria.Projectile,System.Int32,System.Int32)">
+            <summary>Instantiates a standard <see cref="T:WebmilioCommons.Time.TimeAlterationRequest"/>.</summary>
+            <param name="projectile">The npc who initiated the time alteration.</param>
+            <param name="duration">How long the time alteration should last.</param>
+            <param name="tickRate">The rate at which the world ticks for everything else than the source. Only tick rates of 0 or 1 are supposed as of yet.</param>
+        </member>
+        <member name="M:WebmilioCommons.Time.TimeAlterationRequest.#ctor(Terraria.Item,System.Int32,System.Int32)">
+            <summary>Instantiates a standard <see cref="T:WebmilioCommons.Time.TimeAlterationRequest"/>.</summary>
+            <param name="item">The item which initiated the time alteration.</param>
+            <param name="duration">How long the time alteration should last.</param>
+            <param name="tickRate">The rate at which the world ticks for everything else than the source. Only tick rates of 0 or 1 are supposed as of yet.</param>
+        </member>
         <member name="M:WebmilioCommons.Time.TimeAlterationRequest.#ctor(WebmilioCommons.Time.TimeAlterationRequest.Sources,System.Int32,System.Int32)">
             <summary>
             </summary>
             <param name="sourceType"></param>
             <param name="duration"></param>
-            <param name="tickRate">The rate at which the world ticks for everything else than the source. Only tick rates of 0 or 1 are supposed.</param>
+            <param name="tickRate">The rate at which the world ticks for everything else than the source. Only tick rates of 0 or 1 are supposed as of yet.</param>
+        </member>
+        <member name="M:WebmilioCommons.Time.TimeAlterationRequest.Send(WebmilioCommons.Networking.Packets.NetworkPacket,Terraria.ModLoader.ModPacket)">
+            <summary>Writes the request's information to the provided <see cref="T:Terraria.ModLoader.ModPacket"/>. To add information to the <see cref="T:Terraria.ModLoader.ModPacket"/>, override <see cref="M:WebmilioCommons.Time.TimeAlterationRequest.ModSend(WebmilioCommons.Networking.Packets.NetworkPacket,Terraria.ModLoader.ModPacket)"/>.</summary>
+            <param name="networkPacket"></param>
+            <param name="modPacket"></param>
+        </member>
+        <member name="M:WebmilioCommons.Time.TimeAlterationRequest.ModSend(WebmilioCommons.Networking.Packets.NetworkPacket,Terraria.ModLoader.ModPacket)">
+            <summary></summary>
+            <param name="networkPacket"></param>
+            <param name="modPacket"></param>
+        </member>
+        <member name="M:WebmilioCommons.Time.TimeAlterationRequest.Receive(WebmilioCommons.Networking.Packets.NetworkPacket,System.IO.BinaryReader)">
+            <summary>Reads the request's information to the provided <see cref="T:Terraria.ModLoader.ModPacket"/>. To receive additional information to the <see cref="T:Terraria.ModLoader.ModPacket"/>, override <see cref="M:WebmilioCommons.Time.TimeAlterationRequest.ModReceive(WebmilioCommons.Networking.Packets.NetworkPacket,System.IO.BinaryReader)"/>.</summary>
+            <param name="networkPacket"></param>
+            <param name="reader"></param>
+        </member>
+        <member name="M:WebmilioCommons.Time.TimeAlterationRequest.ModReceive(WebmilioCommons.Networking.Packets.NetworkPacket,System.IO.BinaryReader)">
+            <summary></summary>
+            <param name="networkPacket"></param>
+            <param name="modPacket"></param>
         </member>
         <member name="P:WebmilioCommons.Time.TimeAlterationRequest.LockedToSource">
             <summary>
