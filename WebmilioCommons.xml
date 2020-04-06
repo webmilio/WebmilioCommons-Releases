@@ -159,6 +159,12 @@
             <param name="disposable">The resource to verify.</param>
             <returns><c>true</c> if the resource should be disposed of; otherwise <c>false</c>.</returns>
         </member>
+        <member name="M:WebmilioCommons.Extensions.ChestExtensions.AddShop``1(Terraria.Chest,System.Int32@)">
+            <summary>Adds an item to a shop. Use in <see cref="M:Terraria.ModLoader.GlobalNPC.SetupShop(System.Int32,Terraria.Chest,System.Int32@)"/>.</summary>
+            <typeparam name="T"></typeparam>
+            <param name="shop"></param>
+            <param name="nextSlot"></param>
+        </member>
         <member name="M:WebmilioCommons.Extensions.EntityExtensions.IsImmobile(Terraria.Entity,System.Boolean,System.Int32)">
             <summary></summary>
             <param name="entity"></param>
@@ -188,6 +194,21 @@
             <summary>Finds the appropriate texture based solely on the type and its associated mod.</summary>
             <param name="type"></param>
             <returns></returns>
+        </member>
+        <member name="M:WebmilioCommons.Globals.BetterGlobalNPC.SetupShop(System.Int32,Terraria.Chest,System.Int32@)">
+            <summary>Overwritten by <see cref="T:WebmilioCommons.Globals.BetterGlobalNPC"/>. Override <see cref="M:WebmilioCommons.Globals.BetterGlobalNPC.ModSetupShop(System.Int32,Terraria.Chest,System.Int32@)"/> to define custom behavior.</summary>
+            <param name="type">The NPC.</param>
+            <param name="shop"></param>
+            <param name="nextSlot"></param>
+        </member>
+        <member name="M:WebmilioCommons.Globals.BetterGlobalNPC.ModSetupShop(System.Int32,Terraria.Chest,System.Int32@)">
+            <inheritdoc cref="M:Terraria.ModLoader.GlobalNPC.SetupShop(System.Int32,Terraria.Chest,System.Int32@)"/>
+        </member>
+        <member name="M:WebmilioCommons.Globals.GlobalNPCSetupShopMethods.AddSetupShopMethod(System.Int32,System.Func{WebmilioCommons.Globals.BetterGlobalNPC,WebmilioCommons.Globals.GlobalNPCSetupShopMethods.NPCSetupShopMethod})">
+            <summary>Adds a method to call for a specific NPC during <see cref="M:WebmilioCommons.Globals.BetterGlobalNPC.SetupShop(System.Int32,Terraria.Chest,System.Int32@)"/>. Call this during your mod's <see cref="M:Terraria.ModLoader.Mod.PostSetupContent"/></summary>
+            <param name="type">The NPC Type.</param>
+            <param name="setupShopMethod">The shop method.</param>
+            <seealso cref="M:WebmilioCommons.Globals.BetterGlobalNPC.SetupShop(System.Int32,Terraria.Chest,System.Int32@)"/>
         </member>
         <member name="T:WebmilioCommons.Loaders.IAssociatedToMod">
             <summary>Implementing this interface will cause the loader to automatically feed the owner <see cref="T:Terraria.ModLoader.Mod"/> to the requested instance when using <see cref="!:Loader&lt;T&gt;.New(ushort)"/> or <see cref="M:WebmilioCommons.Loaders.Loader`1.New``1"/></summary>
