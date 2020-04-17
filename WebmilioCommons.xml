@@ -165,6 +165,26 @@
             <param name="shop"></param>
             <param name="nextSlot"></param>
         </member>
+        <member name="M:WebmilioCommons.Extensions.ChestExtensions.AddShop``1(Terraria.Chest,System.Int32,System.Int32@)">
+            <summary>Adds an item to a shop. Use in <see cref="M:Terraria.ModLoader.GlobalNPC.SetupShop(System.Int32,Terraria.Chest,System.Int32@)"/>.</summary>
+            <typeparam name="T">The item type of the ModItem.</typeparam>
+            <param name="shop"></param>
+            <param name="stack">How many items in the stack being sold.</param>
+            <param name="nextSlot"></param>
+        </member>
+        <member name="M:WebmilioCommons.Extensions.ChestExtensions.AddShop(Terraria.Chest,System.Int32,System.Int32@)">
+            <summary>Adds an item to a shop. Use in <see cref="M:Terraria.ModLoader.GlobalNPC.SetupShop(System.Int32,Terraria.Chest,System.Int32@)"/>.</summary>
+            <param name="shop"></param>
+            <param name="type">The item type of the ModItem.</param>
+            <param name="nextSlot"></param>
+        </member>
+        <member name="M:WebmilioCommons.Extensions.ChestExtensions.AddShop(Terraria.Chest,System.Int32,System.Int32,System.Int32@)">
+            <summary>Adds an item to a shop. Use in <see cref="M:Terraria.ModLoader.GlobalNPC.SetupShop(System.Int32,Terraria.Chest,System.Int32@)"/>.</summary>
+            <param name="shop"></param>
+            <param name="type"></param>
+            <param name="stack">How many items in the stack being sold.</param>
+            <param name="nextSlot"></param>
+        </member>
         <member name="M:WebmilioCommons.Extensions.EntityExtensions.IsImmobile(Terraria.Entity,System.Boolean,System.Int32)">
             <summary></summary>
             <param name="entity"></param>
@@ -189,6 +209,17 @@
             <param name="mod"></param>
             <param name="packet">The packet.</param>
             <returns>The auto-generated ID of the packet.</returns>
+        </member>
+        <member name="M:WebmilioCommons.Extensions.PlayerExtensions.IsHoldingMiningItem(Terraria.Player)">
+            <summary>Checks if the player is holding an item capable of breaking blocks (pickaxes, axes, hammers).</summary>
+            <param name="player"></param>
+            <returns><c>true</c> if the player is holding a mining item; <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:WebmilioCommons.Extensions.RecipeExtensions.AddIngredient``1(Terraria.ModLoader.ModRecipe,System.Int32)">
+            <summary>Adds an ingredient to this recipe with the given item type and stack size.</summary>
+            <typeparam name="T">The type of item to add.</typeparam>
+            <param name="recipe"></param>
+            <param name="stack">How many of the specified item are required in the recipe.</param>
         </member>
         <member name="M:WebmilioCommons.Extensions.TypeExtensions.GetTexture(System.Type)">
             <summary>Finds the appropriate texture based solely on the type and its associated mod.</summary>
@@ -376,9 +407,6 @@
         </member>
         <member name="T:WebmilioCommons.Networking.NetworkPacketBehavior">
             <summary>The different behaviors for network packets.</summary>
-        </member>
-        <member name="F:WebmilioCommons.Networking.NetworkPacketBehavior.SendToClient">
-            <summary>Sends directly to the specified client (toWho).</summary>
         </member>
         <member name="F:WebmilioCommons.Networking.NetworkPacketBehavior.SendToAllClients">
             <summary>
@@ -596,6 +624,11 @@
             <param name="pvp"></param>
             <param name="damageSource"></param>
             <returns>The custom death message.</returns>
+        </member>
+        <member name="M:WebmilioCommons.Projectiles.StandardProjectile.StandardAnimateFrame(System.Int32,System.Int32)">
+            <summary></summary>
+            <param name="frameCount"></param>
+            <param name="frameCounterTime"></param>
         </member>
         <member name="M:WebmilioCommons.Rarities.ModRarity.#ctor(System.Int32,System.Int32,Microsoft.Xna.Framework.Color)">
             <summary>Called when loading all <see cref="T:WebmilioCommons.Rarities.ModRarity"/>.</summary>
