@@ -668,6 +668,15 @@
         <member name="P:WebmilioCommons.Rarities.ModRarityLoader.HookingSuccessful">
             <summary><c>true</c> if the loader successfully hooked into the game's IL; otherwise <c>false</c>.</summary>
         </member>
+        <member name="M:WebmilioCommons.Statues.QuickSpawningStatueTile.DoSpawnNPC(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary></summary>
+            <param name="wireHitX"></param>
+            <param name="wireHitY"></param>
+            <param name="spawnX"></param>
+            <param name="spawnY"></param>
+            <param name="npcType"></param>
+            <returns>-1 to stop the execution of <see cref="M:WebmilioCommons.Statues.QuickSpawningStatueTile.SpawnNPC(System.Int32,System.Int32,System.Int32,System.Int32)"/>; otherwise the NPC index in the world.</returns>
+        </member>
         <member name="P:WebmilioCommons.Tiles.BetterGlobalTile.MiningLookupRange">
             <summary>The maximum range for which to trigger CanKillTile with Player. Set to -1 to not have a distance limit. Default is 25.</summary>
         </member>
