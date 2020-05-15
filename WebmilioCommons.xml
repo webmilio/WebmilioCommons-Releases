@@ -266,13 +266,7 @@
         <member name="M:WebmilioCommons.Loaders.Loader`1.#ctor">
             <summary>Instantiates a new <see cref="T:WebmilioCommons.Loaders.Loader`1"/> and loads all found subtypes of <see cref="!:T"/> that are not abstract.</summary>
         </member>
-        <member name="M:WebmilioCommons.Loaders.Loader`1.#ctor(System.Func{System.Reflection.TypeInfo,System.Boolean})">
-            <summary>
-            Instantiates a new <see cref="T:WebmilioCommons.Loaders.Loader`1"/> and loads all found subtypes of <see cref="!:T"/> that are not abstract and
-            match the specified <param name="loadCondition">load condition(s)</param>.
-            </summary>
-            <param name="loadCondition">The condition under which a subclass of <see cref="!:T"/> should be loaded.</param>
-        </member>
+        <!-- Badly formed XML comment ignored for member "M:WebmilioCommons.Loaders.Loader`1.#ctor(System.Func{System.Reflection.TypeInfo,System.Boolean})" -->
         <member name="M:WebmilioCommons.Loaders.Loader`1.TryLoad">
             <summary>Tries loading the current loader instance if it has not already been loaded.</summary>
         </member>
