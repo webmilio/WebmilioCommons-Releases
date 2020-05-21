@@ -659,6 +659,9 @@
         <member name="P:WebmilioCommons.Rarities.ModRarity.LowerVanillaRarity">
             <summary>Used in comparing two different rarity IDs and fallback rarity ID in case the <see cref="T:WebmilioCommons.Rarities.ModRarityLoader"/> crashes.</summary>
         </member>
+        <member name="P:WebmilioCommons.Rarities.ModRarity.Color">
+            <summary>The displayed color. You can return something dynamic like <example>new Color(Main.DiscoR, Main.DiscoG, Main.DiscoB)</example>.</summary>
+        </member>
         <member name="M:WebmilioCommons.Rarities.ModRarityLoader.PreLoad">
             <inheritdoc />
         </member>
