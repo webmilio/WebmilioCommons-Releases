@@ -229,6 +229,11 @@
             <param name="packet">The packet.</param>
             <returns>The auto-generated ID of the packet.</returns>
         </member>
+        <member name="M:WebmilioCommons.Extensions.ModExtensions.StandardModFilter(System.Collections.Generic.IList{Terraria.ModLoader.Mod})">
+            <summary>Filters out mods that have a <c>null</c> <see cref="P:Terraria.ModLoader.Mod.Code"/>.</summary>
+            <param name="mods"></param>
+            <returns>A list of filtered mods.</returns>
+        </member>
         <member name="M:WebmilioCommons.Extensions.PlayerExtensions.IsHoldingMiningItem(Terraria.Player)">
             <summary>Checks if the player is holding an item capable of breaking blocks (pickaxes, axes, hammers).</summary>
             <param name="player"></param>
@@ -259,6 +264,12 @@
             <param name="type">The NPC Type.</param>
             <param name="setupShopMethod">The shop method.</param>
             <seealso cref="M:WebmilioCommons.Globals.BetterGlobalNPC.SetupShop(System.Int32,Terraria.Chest,System.Int32@)"/>
+        </member>
+        <member name="T:WebmilioCommons.Items.Starting.IPlayerCanStartWith">
+            <summary>Implements a check to see if the player should start with the item.</summary>
+        </member>
+        <member name="T:WebmilioCommons.Items.Starting.IPlayerStartsWithStack">
+            <summary>Implements a property which specifies how big the starting item's stack should be.</summary>
         </member>
         <member name="T:WebmilioCommons.Loaders.IAssociatedToMod">
             <summary>Implementing this interface will cause the loader to automatically feed the owner <see cref="T:Terraria.ModLoader.Mod"/> to the requested instance when using <see cref="!:Loader&lt;T&gt;.New(ushort)"/> or <see cref="M:WebmilioCommons.Loaders.Loader`1.New``1"/></summary>
@@ -949,11 +960,122 @@
             <param name="local">true if this comes from the local client; false if its from the network.</param>
             <returns></returns>
         </member>
-        <member name="M:WebmilioCommons.Tinq.EntityExtensions.ExceptActive``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})">
-            <summary>Generates a </summary>
+        <member name="M:WebmilioCommons.Tinq.EntityExtensions.Active(Terraria.Entity)">
+            <summary>Checks if the entity is considered active.</summary>
+            <param name="entity">The entity to verify.</param>
+            <returns><c>true</c> if the entity is not null and <see cref="F:Terraria.Entity.active"/> is <c>true</c>; otherwise <c>false</c>.</returns>
+        </member>
+        <member name="M:WebmilioCommons.Tinq.EntityExtensions.Active``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>Filters all entities by their active state.</summary>
             <typeparam name="T"></typeparam>
+            <param name="entities"></param>
+            <returns>The filtered entities.</returns>
+        </member>
+        <member name="M:WebmilioCommons.Tinq.EntityExtensions.AllActive``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+            <summary>Determines whether all entities of a sequence are active and satisfy a condition.</summary>
+            <typeparam name="T">The entity type of <paramref name="entities"/>.</typeparam>
+            <param name="entities">An <see cref="T:System.Collections.Generic.IEnumerable`1"/> that contains the entities to check for active and apply the predicate to.</param>
+            <param name="predicate">A function to test each element for a condition.</param>
+            <returns><c>true</c> if every entity of the source sequence is active and passes the test in the specified predicate, or if the sequence is empty; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:WebmilioCommons.Tinq.EntityExtensions.AnyActive``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>Determines whether a sequence contains any active entity.</summary>
+            <typeparam name="T">The entity type of <paramref name="entities"/>.</typeparam>
+            <param name="entities"></param>
+            <returns><c>true</c> if the sequence contains any active entities; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:WebmilioCommons.Tinq.EntityExtensions.AnyActive``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+            <summary>Determines whether any entity of a sequence is active and satisfies a condition.</summary>
+            <typeparam name="T">The entity type of <paramref name="entities"/>.</typeparam>
+            <param name="entities">An <see cref="T:System.Collections.Generic.IEnumerable`1"/> that contains the entities to check for active and apply the predicate to.</param>
+            <param name="predicate">A function to test each element for a condition.</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebmilioCommons.Tinq.EntityExtensions.CountActive``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>Returns the number of elements in a sequence.</summary>
+            <typeparam name="T">The entity type of <paramref name="entities"/>.</typeparam>
+            <param name="entities">A sequence that contains active elements to be counted.</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebmilioCommons.Tinq.EntityExtensions.CountActive``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+            <summary>Returns a number that represents how many elements in the specified sequence are active and satisfy a condition.</summary>
+            <typeparam name="T">The entity type of <paramref name="entities"/>.</typeparam>
+            <param name="entities">A sequence that contains active elements to be tested and counted.</param>
+            <param name="predicate">A function to test each element for a condition.</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebmilioCommons.Tinq.EntityExtensions.Do``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})">
+            <summary>Executes a provided action on a sequence of elements. If the provided sequence implements <see cref="T:System.Collections.Generic.IList`1"/>, the iteration is done through a <c>for</c>, otherwise it is done through a <c>foreach</c>.</summary>
+            <typeparam name="T">The entity type of <paramref name="source"/>.</typeparam>
+            <param name="source"></param>
+            <param name="action">The action to execute on each element of the sequence.</param>
+        </member>
+        <member name="M:WebmilioCommons.Tinq.EntityExtensions.DoActive``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})">
+            <summary>Executes a provided action on a sequence of entities. The sequence is filtered by active before the action is executed.</summary>
+            <typeparam name="T">The entity type of <paramref name="entities"/>.</typeparam>
+            <param name="entities"></param>
+            <param name="action">The action to execute on each active element of the sequence.</param>
+        </member>
+        <member name="M:WebmilioCommons.Tinq.EntityExtensions.ExceptActive``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary>Generates a list of active entities that are exclusive to one another. Note: I'm not really sure if this does what its supposed to.</summary>
+            <typeparam name="T">The entity type of <paramref name="first"/> and <paramref name="second"/>.</typeparam>
             <param name="first"></param>
             <param name="second"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebmilioCommons.Tinq.EntityExtensions.FirstActive``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>Returns the first active entity of a sequence.</summary>
+            <typeparam name="T">The entity type of <paramref name="entities"/>.</typeparam>
+            <param name="entities"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebmilioCommons.Tinq.EntityExtensions.FirstActive``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+            <summary>Returns the first active entity in a sequence that satisfies a specified condition.</summary>
+            <typeparam name="T">The entity type of <paramref name="entities"/>.</typeparam>
+            <param name="entities">An <see cref="T:System.Collections.Generic.IEnumerable`1"/> to return an element from.</param>
+            <param name="predicate">A function to test each element for a condition.</param>
+            <returns>The first active entity in the sequence that passes the test in the specified predicate function.</returns>
+        </member>
+        <member name="M:WebmilioCommons.Tinq.EntityExtensions.FirstActiveOrDefault``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>Returns the first active entity of a sequence, or a default value if the sequence contains no elements.</summary>
+            <typeparam name="T">The entity type of <paramref name="entities"/>.</typeparam>
+            <param name="entities">The <see cref="T:System.Collections.Generic.IEnumerable`1"/> to return the first element of.</param>
+            <returns><c>default(T)</c> if <paramref name="entities"/> is empty; otherwise, the first active entity in <paramref name="entities"/>.</returns>
+        </member>
+        <member name="M:WebmilioCommons.Tinq.EntityExtensions.FirstActiveOrDefault``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+            <summary>Returns the first active entity of the sequence that satisfies a condition or a default value if no such element is found.</summary>
+            <typeparam name="T">The entity type of <paramref name="entities"/>.</typeparam>
+            <param name="entities">The <see cref="T:System.Collections.Generic.IEnumerable`1"/> to return the first element of.</param>
+            <param name="predicate"></param>
+            <returns><c>default(T)</c> if <paramref name="entities"/> is empty or if no entity is active and passes the test specified by <paramref name="predicate"/>; otherwise, the first active entity in <paramref name="entities"/> that passes the test specified by <paramref name="predicate"/>.</returns>
+        </member>
+        <member name="M:WebmilioCommons.Tinq.EntityExtensions.NearestActive``1(System.Collections.Generic.IEnumerable{``0},Microsoft.Xna.Framework.Vector2,System.Int32)">
+            <summary></summary>
+            <typeparam name="T">The entity type of <paramref name="entities"/>.</typeparam>
+            <param name="entities"></param>
+            <param name="position"></param>
+            <param name="divider"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebmilioCommons.Tinq.EntityExtensions.SingleActive``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+            <summary></summary>
+            <typeparam name="T">The entity type of <paramref name="entities"/>.</typeparam>
+            <param name="entities"></param>
+            <param name="predicate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebmilioCommons.Tinq.EntityExtensions.SingleActiveOrDefault``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+            <summary></summary>
+            <typeparam name="T">The entity type of <paramref name="entities"/>.</typeparam>
+            <param name="entities"></param>
+            <param name="predicate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebmilioCommons.Tinq.EntityExtensions.WhereActive``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
+            <summary></summary>
+            <typeparam name="T">The entity type of <paramref name="entities"/>.</typeparam>
+            <param name="entities"></param>
+            <param name="predicate"></param>
             <returns></returns>
         </member>
         <member name="M:WebmilioCommons.Worlds.Generation.Structures.WorldStructure.Generate(System.Int32,System.Int32)">
