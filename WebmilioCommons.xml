@@ -1035,6 +1035,7 @@
             <param name="entities">An <see cref="T:System.Collections.Generic.IEnumerable`1"/> to return an element from.</param>
             <param name="predicate">A function to test each element for a condition.</param>
             <returns>The first active entity in the sequence that passes the test in the specified predicate function.</returns>
+            <exception cref="T:System.InvalidOperationException">No element satisfies the condition in <paramref name="predicate"/>.</exception>
         </member>
         <member name="M:WebmilioCommons.Tinq.EntityExtensions.FirstActiveOrDefault``1(System.Collections.Generic.IEnumerable{``0})">
             <summary>Returns the first active entity of a sequence, or a default value if the sequence contains no elements.</summary>
@@ -1049,34 +1050,45 @@
             <param name="predicate"></param>
             <returns><c>default(T)</c> if <paramref name="entities"/> is empty or if no entity is active and passes the test specified by <paramref name="predicate"/>; otherwise, the first active entity in <paramref name="entities"/> that passes the test specified by <paramref name="predicate"/>.</returns>
         </member>
-        <member name="M:WebmilioCommons.Tinq.EntityExtensions.NearestActive``1(System.Collections.Generic.IEnumerable{``0},Microsoft.Xna.Framework.Vector2,System.Int32)">
-            <summary></summary>
+        <member name="M:WebmilioCommons.Tinq.EntityExtensions.Nearest``1(System.Collections.Generic.IEnumerable{``0},Microsoft.Xna.Framework.Vector2,System.Int32)">
+            <summary>Finds the nearest entity to a point from the sequence.</summary>
             <typeparam name="T">The entity type of <paramref name="entities"/>.</typeparam>
-            <param name="entities"></param>
-            <param name="position"></param>
-            <param name="divider"></param>
-            <returns></returns>
+            <param name="entities">The <see cref="T:System.Collections.Generic.IEnumerable`1"/> to return the nearest element of.</param>
+            <param name="position">The position to search around.</param>
+            <param name="divider">The divider for each entity's position. If the provided position is a world tile, this needs to be 16.</param>
+            <returns>The nearest active entity to the provided point or <c>default</c> if the source <paramref name="entities"/> was empty.</returns>
+            <exception cref="T:System.DivideByZeroException">Cannot divide an entity's position by zero.</exception>
+        </member>
+        <member name="M:WebmilioCommons.Tinq.EntityExtensions.NearestActive``1(System.Collections.Generic.IEnumerable{``0},Microsoft.Xna.Framework.Vector2,System.Int32)">
+            <summary>Finds the nearest active entity to a point from the sequence.</summary>
+            <typeparam name="T">The entity type of <paramref name="entities"/>.</typeparam>
+            <param name="entities">The <see cref="T:System.Collections.Generic.IEnumerable`1"/> to return the nearest element of.</param>
+            <param name="position">The position to search around.</param>
+            <param name="divider">The divider for each entity's position. If the provided position is a world tile, this needs to be 16.</param>
+            <returns>The nearest active entity to the provided point or <c>default</c> if the source <paramref name="entities"/> was empty.</returns>
         </member>
         <member name="M:WebmilioCommons.Tinq.EntityExtensions.SingleActive``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
-            <summary></summary>
+            <summary>Returns the only entity of a sequence that satisfies a specified condition and is active, and throws an exception if more than one such element exists.</summary>
             <typeparam name="T">The entity type of <paramref name="entities"/>.</typeparam>
-            <param name="entities"></param>
-            <param name="predicate"></param>
-            <returns></returns>
+            <param name="entities">An <see cref="T:System.Collections.Generic.IEnumerable`1"/> to return a single element from.</param>
+            <param name="predicate">A function to test an element for a condition.</param>
+            <returns>The single element of the input sequence that satisfies a condition and is active.</returns>
+            <exception cref="T:System.InvalidOperationException">More than one active entity satisfies the condition in predicate.</exception>
         </member>
         <member name="M:WebmilioCommons.Tinq.EntityExtensions.SingleActiveOrDefault``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
-            <summary></summary>
+            <summary>Returns the only entity of a sequence that satisfies a specified condition and is active or a default value if no such element exists; this method throws an exception if more than one element satisfies the condition.</summary>
             <typeparam name="T">The entity type of <paramref name="entities"/>.</typeparam>
-            <param name="entities"></param>
-            <param name="predicate"></param>
-            <returns></returns>
+            <param name="entities">An <see cref="T:System.Collections.Generic.IEnumerable`1"/> to return a single active element from.</param>
+            <param name="predicate">A function to test an element for a condition.</param>
+            <returns>The single element of the input sequence that satisfies the condition and is active, or <c>default(T)</c> if no such element is found.</returns>
+            <exception cref="T:System.InvalidOperationException">More than one active entity satisfies the condition in predicate.</exception>
         </member>
         <member name="M:WebmilioCommons.Tinq.EntityExtensions.WhereActive``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
-            <summary></summary>
+            <summary>Filters a sequence of entities based on their active state and a predicate.</summary>
             <typeparam name="T">The entity type of <paramref name="entities"/>.</typeparam>
-            <param name="entities"></param>
-            <param name="predicate"></param>
-            <returns></returns>
+            <param name="entities">An <see cref="T:System.Collections.Generic.IEnumerable`1"/> to filter.</param>
+            <param name="predicate">A function to test each element for a condition.</param>
+            <returns>A <see cref="T:System.Collections.Generic.List`1"/> that contains entities from the input sequence that satisfy the condition and are active.</returns>
         </member>
         <member name="M:WebmilioCommons.Worlds.Generation.Structures.WorldStructure.Generate(System.Int32,System.Int32)">
             <summary>Generates the structure from the top-left to the bottom-right starting at the given coordinates.</summary>
