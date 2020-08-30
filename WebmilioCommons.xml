@@ -211,6 +211,12 @@
              <param name="chances"></param>
              <returns></returns>
         </member>
+        <member name="M:WebmilioCommons.Extensions.EnumerableExtensions.Do``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})">
+            <summary>Executes a provided action on a sequence of elements. If the provided sequence implements <see cref="T:System.Collections.Generic.IList`1"/>, the iteration is done through a <c>for</c>, otherwise it is done through a <c>foreach</c>.</summary>
+            <typeparam name="T">The type of <paramref name="source"/>.</typeparam>
+            <param name="source"></param>
+            <param name="action">The action to execute on each element of the sequence.</param>
+        </member>
         <member name="M:WebmilioCommons.Extensions.ModExtensions.GetPacket(Terraria.ModLoader.Mod,System.Int32)">
             <summary>Returns a new instance of the packet corresponding to the specified ID.</summary>
             <param name="mod"></param>
@@ -649,6 +655,9 @@
             <param name="damageSource"></param>
             <returns>The custom death message.</returns>
         </member>
+        <member name="M:WebmilioCommons.Players.WCPlayer.DeTransform">
+            <summary>Removes all transformation from the player.</summary>
+        </member>
         <member name="M:WebmilioCommons.Projectiles.StandardProjectile.StandardAnimateFrame(System.Int32,System.Int32)">
             <summary></summary>
             <param name="frameCount"></param>
@@ -1006,7 +1015,7 @@
         </member>
         <member name="M:WebmilioCommons.Tinq.EntityExtensions.Do``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})">
             <summary>Executes a provided action on a sequence of elements. If the provided sequence implements <see cref="T:System.Collections.Generic.IList`1"/>, the iteration is done through a <c>for</c>, otherwise it is done through a <c>foreach</c>.</summary>
-            <typeparam name="T">The entity type of <paramref name="source"/>.</typeparam>
+            <typeparam name="T">The type of <paramref name="source"/>.</typeparam>
             <param name="source"></param>
             <param name="action">The action to execute on each element of the sequence.</param>
         </member>
@@ -1089,6 +1098,12 @@
             <param name="entities">An <see cref="T:System.Collections.Generic.IEnumerable`1"/> to filter.</param>
             <param name="predicate">A function to test each element for a condition.</param>
             <returns>A <see cref="T:System.Collections.Generic.List`1"/> that contains entities from the input sequence that satisfy the condition and are active.</returns>
+        </member>
+        <member name="P:WebmilioCommons.Transformations.PlayerTransformation.Unique">
+            <summary>
+            <c>true</c> if the only one instance of the transformation is allowed at a time per play; <c>false</c> otherwise.
+            Defaults to <c>true</c>.
+            </summary>
         </member>
         <member name="M:WebmilioCommons.Worlds.Generation.Structures.WorldStructure.Generate(System.Int32,System.Int32)">
             <summary>Generates the structure from the top-left to the bottom-right starting at the given coordinates.</summary>
