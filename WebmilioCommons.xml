@@ -256,21 +256,6 @@
             <param name="type"></param>
             <returns></returns>
         </member>
-        <member name="M:WebmilioCommons.Globals.BetterGlobalNPC.SetupShop(System.Int32,Terraria.Chest,System.Int32@)">
-            <summary>Overwritten by <see cref="T:WebmilioCommons.Globals.BetterGlobalNPC"/>. Override <see cref="M:WebmilioCommons.Globals.BetterGlobalNPC.ModSetupShop(System.Int32,Terraria.Chest,System.Int32@)"/> to define custom behavior.</summary>
-            <param name="type">The NPC.</param>
-            <param name="shop"></param>
-            <param name="nextSlot"></param>
-        </member>
-        <member name="M:WebmilioCommons.Globals.BetterGlobalNPC.ModSetupShop(System.Int32,Terraria.Chest,System.Int32@)">
-            <inheritdoc cref="M:Terraria.ModLoader.GlobalNPC.SetupShop(System.Int32,Terraria.Chest,System.Int32@)"/>
-        </member>
-        <member name="M:WebmilioCommons.Globals.GlobalNPCSetupShopMethods.AddSetupShopMethod(System.Int32,System.Func{WebmilioCommons.Globals.BetterGlobalNPC,WebmilioCommons.Globals.GlobalNPCSetupShopMethods.NPCSetupShopMethod})">
-            <summary>Adds a method to call for a specific NPC during <see cref="M:WebmilioCommons.Globals.BetterGlobalNPC.SetupShop(System.Int32,Terraria.Chest,System.Int32@)"/>. Call this during your mod's <see cref="M:Terraria.ModLoader.Mod.PostSetupContent"/></summary>
-            <param name="type">The NPC Type.</param>
-            <param name="setupShopMethod">The shop method.</param>
-            <seealso cref="M:WebmilioCommons.Globals.BetterGlobalNPC.SetupShop(System.Int32,Terraria.Chest,System.Int32@)"/>
-        </member>
         <member name="T:WebmilioCommons.Items.Starting.IPlayerCanStartWith">
             <summary>Implements a check to see if the player should start with the item.</summary>
         </member>
@@ -642,6 +627,21 @@
             <summary>Fetch a property serializer.</summary>
             <param name="type">The property type.</param>
             <returns>The <see cref="T:WebmilioCommons.Networking.Serializing.NetworkTypeSerializer"/> if found; otherwise <c>null</c>.</returns>
+        </member>
+        <member name="M:WebmilioCommons.NPCs.BetterGlobalNPC.SetupShop(System.Int32,Terraria.Chest,System.Int32@)">
+            <summary>Overwritten by <see cref="T:WebmilioCommons.NPCs.BetterGlobalNPC"/>. Override <see cref="M:WebmilioCommons.NPCs.BetterGlobalNPC.ModSetupShop(System.Int32,Terraria.Chest,System.Int32@)"/> to define custom behavior.</summary>
+            <param name="type">The NPC.</param>
+            <param name="shop"></param>
+            <param name="nextSlot"></param>
+        </member>
+        <member name="M:WebmilioCommons.NPCs.BetterGlobalNPC.ModSetupShop(System.Int32,Terraria.Chest,System.Int32@)">
+            <inheritdoc cref="M:Terraria.ModLoader.GlobalNPC.SetupShop(System.Int32,Terraria.Chest,System.Int32@)"/>
+        </member>
+        <member name="M:WebmilioCommons.NPCs.GlobalNPCSetupShopMethods.AddSetupShopMethod(System.Int32,System.Func{WebmilioCommons.NPCs.BetterGlobalNPC,WebmilioCommons.NPCs.GlobalNPCSetupShopMethods.NPCSetupShopMethod})">
+            <summary>Adds a method to call for a specific NPC during <see cref="M:WebmilioCommons.NPCs.BetterGlobalNPC.SetupShop(System.Int32,Terraria.Chest,System.Int32@)"/>. Call this during your mod's <see cref="M:Terraria.ModLoader.Mod.PostSetupContent"/></summary>
+            <param name="type">The NPC Type.</param>
+            <param name="setupShopMethod">The shop method.</param>
+            <seealso cref="M:WebmilioCommons.NPCs.BetterGlobalNPC.SetupShop(System.Int32,Terraria.Chest,System.Int32@)"/>
         </member>
         <member name="T:WebmilioCommons.NPCs.IOverridesPlayerDeathMessage">
             <summary>Allows you to implement custom logic intended to override the death message of a player when killed by an entity implementing this interface.</summary>
