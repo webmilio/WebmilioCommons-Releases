@@ -897,6 +897,33 @@
         <member name="P:WebmilioCommons.Statues.QuickSpawningStatueTile.SpawnedTypes">
             <summary>Used in checks for max statue-spawned entities and default random implementation.</summary>
         </member>
+        <member name="M:WebmilioCommons.TileEntities.StandardTileEntity.Kill">
+            <summary>Called when the tile is being called. Replaces <see cref="M:Terraria.ModLoader.ModTileEntity.OnKill"/>.</summary>
+        </member>
+        <member name="M:WebmilioCommons.TileEntities.StandardTileEntity.ForNeighbors(System.Action{WebmilioCommons.TileEntities.StandardTileEntity,System.Int32})">
+            <summary>Iterates through all known <see cref="T:WebmilioCommons.TileEntities.StandardTileEntity"/> neighbors of this tile..</summary>
+            <param name="action">The action to take the neighboring tile.</param>
+        </member>
+        <member name="M:WebmilioCommons.TileEntities.StandardTileEntity.ForNeighbors``1(System.Action{``0,System.Int32})">
+            <summary>Iterates through all known neighbors of this tile matching the specified type.</summary>
+            <typeparam name="T"></typeparam>
+            <param name="action">The action to take the neighboring tile.</param>
+        </member>
+        <member name="M:WebmilioCommons.TileEntities.StandardTileEntity.ModPostWorldLoad">
+            <summary>Called after the world has been loaded and the neighbors assigned.</summary>
+        </member>
+        <member name="P:WebmilioCommons.TileEntities.StandardTileEntity.NeighborCount">
+            <summary>The amount of neighboring <see cref="T:WebmilioCommons.TileEntities.StandardTileEntity"/> tiles.</summary>
+        </member>
+        <member name="M:WebmilioCommons.TileEntities.TileEntityHelpers.Nearest``1(Terraria.DataStructures.Point16,System.Int32,System.Double@,System.Func{``0,System.Boolean})">
+            <summary>Searches for the nearest tile entity in a radius that fits the predicate and type.</summary>
+            <typeparam name="T"></typeparam>
+            <param name="position"></param>
+            <param name="radius"></param>
+            <param name="dist"></param>
+            <param name="predicate"></param>
+            <returns></returns>
+        </member>
         <member name="P:WebmilioCommons.Tiles.BetterGlobalTile.MiningLookupRange">
             <summary>The maximum range for which to trigger CanKillTile with Player. Set to -1 to not have a distance limit. Default is 25.</summary>
         </member>
@@ -1101,7 +1128,7 @@
         </member>
         <member name="P:WebmilioCommons.Transformations.PlayerTransformation.Unique">
             <summary>
-            <c>true</c> if the only one instance of the transformation is allowed at a time per play; <c>false</c> otherwise.
+            <c>true</c> if the only one instance of the transformation is allowed at a time per player; <c>false</c> otherwise.
             Defaults to <c>true</c>.
             </summary>
         </member>
