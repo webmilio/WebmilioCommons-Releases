@@ -663,47 +663,6 @@
             <param name="frameCount"></param>
             <param name="frameCounterTime"></param>
         </member>
-        <member name="M:WebmilioCommons.Rarities.ModRarity.#ctor(System.Int32,System.Int32,Microsoft.Xna.Framework.Color)">
-            <summary>Called when loading all <see cref="T:WebmilioCommons.Rarities.ModRarity"/>.</summary>
-            <param name="lowerVanillaRarity">Fallback vanilla color in case the <see cref="T:WebmilioCommons.Rarities.ModRarityLoader"/> fails to load.</param>
-            <param name="upperVanillaRarity"></param>
-            <param name="color"></param>
-        </member>
-        <member name="P:WebmilioCommons.Rarities.ModRarity.Id">
-            <summary>
-            Rarity ID assigned from the <see cref="T:WebmilioCommons.Rarities.ModRarityLoader"/>.
-            Will always be greater than the highest positive vanilla rarity unless the <see cref="T:WebmilioCommons.Rarities.ModRarityLoader"/> crashes,
-            in which case it will take the value of <see cref="P:WebmilioCommons.Rarities.ModRarity.LowerVanillaRarity"/>.
-            </summary>
-        </member>
-        <member name="P:WebmilioCommons.Rarities.ModRarity.LowerVanillaRarity">
-            <summary>Used in comparing two different rarity IDs and fallback rarity ID in case the <see cref="T:WebmilioCommons.Rarities.ModRarityLoader"/> crashes.</summary>
-        </member>
-        <member name="P:WebmilioCommons.Rarities.ModRarity.Color">
-            <summary>The displayed color. You can return something dynamic like <example>new Color(Main.DiscoR, Main.DiscoG, Main.DiscoB)</example>.</summary>
-        </member>
-        <member name="M:WebmilioCommons.Rarities.ModRarityLoader.PreLoad">
-            <inheritdoc />
-        </member>
-        <member name="M:WebmilioCommons.Rarities.ModRarityLoader.PostLoad">
-            <inheritdoc />
-        </member>
-        <member name="M:WebmilioCommons.Rarities.ModRarityLoader.PreUnload">
-            <inheritdoc />
-        </member>
-        <member name="M:WebmilioCommons.Rarities.ModRarityLoader.GetRarity``1">
-            <summary>Gets the <see cref="T:WebmilioCommons.Rarities.ModRarity"/> instance corresponding to the specified type.</summary>
-            <typeparam name="T">The type of rarity.</typeparam>
-            <returns>The <see cref="T:WebmilioCommons.Rarities.ModRarity"/> from the loaded rarities if found; otherwise <c>null</c>.</returns>
-        </member>
-        <member name="M:WebmilioCommons.Rarities.ModRarityLoader.RarityType``1">
-            <summary>Gets the rarity id of the given type.</summary>
-            <typeparam name="T">The rarity type.</typeparam>
-            <returns></returns>
-        </member>
-        <member name="P:WebmilioCommons.Rarities.ModRarityLoader.HookingSuccessful">
-            <summary><c>true</c> if the loader successfully hooked into the game's IL; otherwise <c>false</c>.</summary>
-        </member>
         <member name="M:WebmilioCommons.Recipes.RecipeBuilder.#ctor">
             <summary>Creates a new instance with no ingredients and no result.</summary>
             <seealso cref="M:WebmilioCommons.Recipes.RecipeBuilder.SetResult(System.Int32,System.Int32)"/>
