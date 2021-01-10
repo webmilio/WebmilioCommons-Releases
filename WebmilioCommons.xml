@@ -256,6 +256,14 @@
             <param name="type"></param>
             <returns></returns>
         </member>
+        <member name="M:WebmilioCommons.Helpers.VectorHelpers.OnCircle(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,System.Single,System.Single)">
+            <summary>Creates a point on a radius in a given direction. The point will always be on the circle, wether or not <paramref name="b">b</paramref> is inside or outside the radius.</summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <param name="radius"></param>
+            <param name="offsetRadius"></param>
+            <returns></returns>
+        </member>
         <member name="T:WebmilioCommons.Items.Starting.IPlayerCanStartWith">
             <summary>Implements a check to see if the player should start with the item.</summary>
         </member>
