@@ -119,6 +119,11 @@
         <member name="P:WebmilioCommons.Achievements.ModAchievement.GameAchievement">
             <summary>The vanilla category under to which this achievement belongs.</summary>
         </member>
+        <member name="M:WebmilioCommons.Commands.StandardCommand.IsLoadingEnabled(Terraria.ModLoader.Mod)">
+            <summary></summary>
+            <param name="mod"></param>
+            <returns></returns>
+        </member>
         <member name="F:WebmilioCommons.Commons.ManagedResource.original">
             <summary>Original ticks.</summary>
         </member>
@@ -159,26 +164,26 @@
             <param name="disposable">The resource to verify.</param>
             <returns><c>true</c> if the resource should be disposed of; otherwise <c>false</c>.</returns>
         </member>
-        <member name="M:WebmilioCommons.Extensions.ChestExtensions.AddShop``1(Terraria.Chest,System.Int32@)">
+        <member name="M:WebmilioCommons.Extensions.ChestExtensions.AddItemToShop``1(Terraria.Chest,System.Int32@)">
             <summary>Adds an item to a shop. Use in <see cref="M:Terraria.ModLoader.GlobalNPC.SetupShop(System.Int32,Terraria.Chest,System.Int32@)"/>.</summary>
             <typeparam name="T"></typeparam>
             <param name="shop"></param>
             <param name="nextSlot"></param>
         </member>
-        <member name="M:WebmilioCommons.Extensions.ChestExtensions.AddShop``1(Terraria.Chest,System.Int32,System.Int32@)">
+        <member name="M:WebmilioCommons.Extensions.ChestExtensions.AddItemToShop``1(Terraria.Chest,System.Int32,System.Int32@)">
             <summary>Adds an item to a shop. Use in <see cref="M:Terraria.ModLoader.GlobalNPC.SetupShop(System.Int32,Terraria.Chest,System.Int32@)"/>.</summary>
             <typeparam name="T">The item type of the ModItem.</typeparam>
             <param name="shop"></param>
             <param name="stack">How many items in the stack being sold.</param>
             <param name="nextSlot"></param>
         </member>
-        <member name="M:WebmilioCommons.Extensions.ChestExtensions.AddShop(Terraria.Chest,System.Int32,System.Int32@)">
+        <member name="M:WebmilioCommons.Extensions.ChestExtensions.AddItemToShop(Terraria.Chest,System.Int32,System.Int32@)">
             <summary>Adds an item to a shop. Use in <see cref="M:Terraria.ModLoader.GlobalNPC.SetupShop(System.Int32,Terraria.Chest,System.Int32@)"/>.</summary>
             <param name="shop"></param>
             <param name="type">The item type of the ModItem.</param>
             <param name="nextSlot"></param>
         </member>
-        <member name="M:WebmilioCommons.Extensions.ChestExtensions.AddShop(Terraria.Chest,System.Int32,System.Int32,System.Int32@)">
+        <member name="M:WebmilioCommons.Extensions.ChestExtensions.AddItemToShop(Terraria.Chest,System.Int32,System.Int32,System.Int32@)">
             <summary>Adds an item to a shop. Use in <see cref="M:Terraria.ModLoader.GlobalNPC.SetupShop(System.Int32,Terraria.Chest,System.Int32@)"/>.</summary>
             <param name="shop"></param>
             <param name="type"></param>
@@ -245,11 +250,14 @@
             <param name="player"></param>
             <returns><c>true</c> if the player is holding a mining item; <c>false</c> otherwise.</returns>
         </member>
-        <member name="M:WebmilioCommons.Extensions.RecipeExtensions.AddIngredient``1(Terraria.ModLoader.ModRecipe,System.Int32)">
-            <summary>Adds an ingredient to this recipe with the given item type and stack size.</summary>
-            <typeparam name="T">The type of item to add.</typeparam>
-            <param name="recipe"></param>
-            <param name="stack">How many of the specified item are required in the recipe.</param>
+        <member name="M:WebmilioCommons.Extensions.TagCompoundExtensions.GetDictionary``2(Terraria.ModLoader.IO.TagCompound,System.String,System.Func{System.String,``0})">
+            <summary></summary>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
+            <param name="tag"></param>
+            <param name="key"></param>
+            <param name="keySelector">Throw a <see cref="T:System.ArgumentOutOfRangeException"/> when the value passed to the selector doesn't result in any valid key.</param>
+            <returns></returns>
         </member>
         <member name="M:WebmilioCommons.Extensions.TypeExtensions.GetTexture(System.Type)">
             <summary>Finds the appropriate texture based solely on the type and its associated mod.</summary>
@@ -328,7 +336,7 @@
             The corresponding value for <see cref="P:WebmilioCommons.Managers.IHasUnlocalizedName.UnlocalizedName"/> of the desired type.
             <typeparamref name="T"/> must implement <see cref="T:WebmilioCommons.Managers.IHasUnlocalizedName"/>.
             </param>
-            <returns>The newly instantiated object if <see cref="P:WebmilioCommons.Loaders.Loader`1.TypeHasUnlocalizedName"/>; otherwise <c>default</c>.</returns>
+            <returns>The newly instantiated object; otherwise <c>default</c>.</returns>
         </member>
         <member name="M:WebmilioCommons.Loaders.Loader`1.GetId(`0)">
             <summary>Gets the Id of the generic instance of the same type as the one provided.</summary>
@@ -421,9 +429,6 @@
             <summary></summary>
             <param name="reader"></param>
             <param name="whoAmI"></param>
-        </member>
-        <member name="M:WebmilioCommons.WebmilioCommonsMod.PostUpdateInput">
-            <summary></summary>
         </member>
         <member name="P:WebmilioCommons.WebmilioCommonsMod.Instance">
             <summary>The current loaded instance of <see cref="T:WebmilioCommons.WebmilioCommonsMod"/>.</summary>
@@ -663,165 +668,16 @@
             <param name="damageSource"></param>
             <returns>The custom death message.</returns>
         </member>
-        <member name="M:WebmilioCommons.Players.WCPlayer.DeTransform">
-            <summary>Removes all transformation from the player.</summary>
-        </member>
         <member name="M:WebmilioCommons.Projectiles.StandardProjectile.StandardAnimateFrame(System.Int32,System.Int32)">
             <summary></summary>
             <param name="frameCount"></param>
             <param name="frameCounterTime"></param>
         </member>
-        <member name="M:WebmilioCommons.Recipes.RecipeBuilder.#ctor">
-            <summary>Creates a new instance with no ingredients and no result.</summary>
-            <seealso cref="M:WebmilioCommons.Recipes.RecipeBuilder.SetResult(System.Int32,System.Int32)"/>
-            <seealso cref="M:WebmilioCommons.Recipes.RecipeBuilder.Requires(System.Int32,System.Int32)"/>
-            <seealso cref="M:WebmilioCommons.Recipes.RecipeBuilder.Finish"/>
-        </member>
-        <member name="M:WebmilioCommons.Recipes.RecipeBuilder.#ctor(Terraria.ModLoader.Mod,System.Int32,System.Int32)">
-            <summary>Creates a new instance with no ingredients with the given item and stack as a result.</summary>
-            <param name="mod">The mod who owns the recipe.</param>
-            <param name="item">The item type.</param>
-            <param name="stack">The stack.</param>
-            <seealso cref="M:WebmilioCommons.Recipes.RecipeBuilder.Requires(System.Int32,System.Int32)"/>
-            <seealso cref="M:WebmilioCommons.Recipes.RecipeBuilder.Finish"/>
-        </member>
-        <member name="M:WebmilioCommons.Recipes.RecipeBuilder.#ctor(Terraria.ModLoader.Mod,System.String,System.Int32)">
-            <summary>Creates a new instance with no ingredients with the given item and stack as a result.</summary>
-            <param name="mod">The mod who owns the recipe.</param>
-            <param name="itemName">Name of the item.</param>
-            <param name="stack">The stack.</param>
-            <seealso cref="M:WebmilioCommons.Recipes.RecipeBuilder.Requires(System.Int32,System.Int32)"/>
-            <seealso cref="M:WebmilioCommons.Recipes.RecipeBuilder.Finish"/>
-        </member>
-        <member name="M:WebmilioCommons.Recipes.RecipeBuilder.#ctor(Terraria.ModLoader.ModItem,System.Int32)">
-            <summary>Creates a new instance with no ingredients with the given item and stack as a result.</summary>
-            <param name="item"></param>
-            <param name="stack"></param>
-            <seealso cref="M:WebmilioCommons.Recipes.RecipeBuilder.Requires(System.Int32,System.Int32)"/>
-            <seealso cref="M:WebmilioCommons.Recipes.RecipeBuilder.Finish"/>
-        </member>
-        <member name="M:WebmilioCommons.Recipes.RecipeBuilder.New(Terraria.ModLoader.ModItem,System.Int32)">
-            <summary>Creates a new mod recipe for the given item and stack. If the previous recipe wasn't added, it adds the recipe then creates a new one.</summary>
-            <param name="item">The mod item.</param>
-            <param name="stack">The stack.</param>
-            <returns></returns>
-        </member>
-        <member name="M:WebmilioCommons.Recipes.RecipeBuilder.New(Terraria.ModLoader.Mod,System.String,System.Int32)">
-            <summary>Creates a new mod recipe for the given item type and stack.</summary>
-            <param name="mod">The mod who owns the recipe.</param>
-            <param name="itemName">Name of the item.</param>
-            <param name="stack">The stack.</param>
-            <returns></returns>
-        </member>
-        <member name="M:WebmilioCommons.Recipes.RecipeBuilder.New(Terraria.ModLoader.Mod,System.Int32,System.Int32)">
-            <summary>Creates a new mod recipe for the given item type and stack. If the previous recipe wasn't added, it adds the recipe then creates a new one.</summary>
-            <param name="mod">The mod who owns the recipe.</param>
-            <param name="item">The item type.</param>
-            <param name="stack">The stack.</param>
-            <returns></returns>
-        </member>
-        <member name="M:WebmilioCommons.Recipes.RecipeBuilder.Clear">
-            <summary>Clears the current recipe by calling <see cref="M:WebmilioCommons.Recipes.RecipeBuilder.New(Terraria.ModLoader.ModItem,System.Int32)"/> and passing the existing recipe result.</summary>
-            <returns></returns>
-        </member>
-        <member name="M:WebmilioCommons.Recipes.RecipeBuilder.Requires(System.Int32,System.Int32)">
+        <member name="P:WebmilioCommons.Saving.SaveAttribute.Key">
             <summary>
-            Adds an ingredient to this recipe with the given item type and stack size.
-            Ex.: 
-            <example>recipe.AddIngredient(ItemID.IronAxe)</example>
+            Sets the key under which the associated member will be saved.
+            Not setting a value will make the key default to the member's name.
             </summary>
-            <param name="type">The item type.</param>
-            <param name="stack">The stack.</param>
-            <returns></returns>
-        </member>
-        <member name="M:WebmilioCommons.Recipes.RecipeBuilder.Requires(System.Int32,System.Int32,System.Int32,System.Int32[])">
-            <summary>
-            Adds the specified ingredients to this recipe with the given item types.
-            Ex.: 
-            <example>recipe.AddIngredient(ItemID.IronAxe)</example>
-            </summary>
-            <param name="type1">The first item type.</param>
-            <param name="type2">The second item type.</param>
-            <param name="type3">The third item type.</param>
-            <param name="types">The remaining item types.</param>
-            <returns></returns>
-        </member>
-        <member name="M:WebmilioCommons.Recipes.RecipeBuilder.Requires(Terraria.ModLoader.Mod,System.String,System.Int32)">
-            <summary>Adds an ingredient to this recipe with the given item name from the given mod, and with the given stack stack. If the mod parameter is null, then it will automatically use an item from the mod creating this recipe.</summary>
-            <param name="mod">The mod.</param>
-            <param name="itemName">Name of the item.</param>
-            <param name="stack">The stack.</param>
-            <returns></returns>
-            <exception cref="T:Terraria.ModLoader.Exceptions.RecipeException">The item " + itemName + " does not exist in mod " + mod.Name + ". If you are trying to use a vanilla item, try removing the first argument.</exception>
-        </member>
-        <member name="M:WebmilioCommons.Recipes.RecipeBuilder.Requires(Terraria.ModLoader.ModItem,System.Int32)">
-            <summary>Adds an ingredient to this recipe of the given type of item and stack size.</summary>
-            <param name="modItem">The item.</param>
-            <param name="stack">The stack.</param>
-            <returns></returns>
-        </member>
-        <member name="M:WebmilioCommons.Recipes.RecipeBuilder.Requires(System.String,System.Int32)">
-            <summary>Adds a recipe group ingredient to this recipe with the given RecipeGroup name and stack size. Vanilla recipe groups consist of "Wood", "IronBar", "PresurePlate", "Sand", and "Fragment".</summary>
-            <param name="recipeGroup">The name.</param>
-            <param name="stack">The stack.</param>
-            <returns></returns>
-            <exception cref="T:Terraria.ModLoader.Exceptions.RecipeException"></exception>
-        </member>
-        <member name="M:WebmilioCommons.Recipes.RecipeBuilder.At(System.Int32[])">
-            <summary>
-            Adds one or many required crafting station(s) with the given tile type(s) to the recipe being built.
-            Ex.:
-            <example>At(TileID.WorkBenches, TileID.Anvils)</example>
-            </summary>
-            <param name="tileTypes"></param>
-            <returns></returns>
-        </member>
-        <member name="M:WebmilioCommons.Recipes.RecipeBuilder.Finish">
-            <summary>Adds this recipe to the game. Call this after you have finished setting the result, ingredients, etc.</summary>
-            <returns></returns>
-            <exception cref="T:Terraria.ModLoader.Exceptions.RecipeException">A recipe without any result has been added.</exception>
-        </member>
-        <member name="M:WebmilioCommons.Recipes.RecipeBuilder.Produces(System.Int32,System.Int32)">
-            <summary>
-            Sets the result of this recipe with the given item type and stack size.
-            If this <see cref="T:WebmilioCommons.Recipes.RecipeBuilder"/> instance was created using a constructor in which the result is specified, use <see cref="M:WebmilioCommons.Recipes.RecipeBuilder.Finish"/> instead./>
-            </summary>
-            <param name="itemId">The item identifier.</param>
-            <param name="stack">The stack.</param>
-            <returns></returns>
-            <seealso cref="M:WebmilioCommons.Recipes.RecipeBuilder.Finish"/>
-        </member>
-        <member name="M:WebmilioCommons.Recipes.RecipeBuilder.Produces(Terraria.ModLoader.ModItem,System.Int32)">
-            <summary>
-            Sets the result of this recipe to the given type of item and stack size. Useful in ModItem.AddRecipes.
-            If this <see cref="T:WebmilioCommons.Recipes.RecipeBuilder"/> instance was created using a constructor in which the result is specified, use <see cref="M:WebmilioCommons.Recipes.RecipeBuilder.Finish"/> instead./>
-            </summary>
-            <param name="item">The item.</param>
-            <param name="stack">The stack.</param>
-            <returns></returns>
-            <seealso cref="M:WebmilioCommons.Recipes.RecipeBuilder.Finish"/>
-        </member>
-        <member name="M:WebmilioCommons.Recipes.RecipeBuilder.Produces(Terraria.ModLoader.Mod,System.String,System.Int32)">
-            <summary>
-            Sets the result of this recipe with the given item name from the given mod, and with the given stack stack. If the mod parameter is null, then it will automatically use an item from the mod creating this recipe. Useful in ModItem.AddRecipes.
-            If this <see cref="T:WebmilioCommons.Recipes.RecipeBuilder"/> instance was created using a constructor in which the result is specified, use <see cref="M:WebmilioCommons.Recipes.RecipeBuilder.Finish"/> instead./>
-            </summary>
-            <param name="mod">The mod the item originates from.</param>
-            <param name="itemName">Name of the item.</param>
-            <param name="stack">The stack.</param>
-            <returns></returns>
-            <seealso cref="M:WebmilioCommons.Recipes.RecipeBuilder.Finish"/>
-        </member>
-        <member name="M:WebmilioCommons.Recipes.RecipeBuilder.SetResult(System.Int32,System.Int32)">
-            <summary>Changes the result of the current recipe with the given item type and stack size..</summary>
-            <param name="type">The type.</param>
-            <param name="stack">The stack.</param>
-            <returns></returns>
-        </member>
-        <member name="M:WebmilioCommons.Recipes.RecipeBuilder.SetResultStack(System.Int32)">
-            <summary>Changes how many of the output item is produced from the recipe.</summary>
-            <param name="stack"></param>
-            <returns></returns>
         </member>
         <member name="M:WebmilioCommons.Statues.QuickSpawningStatueTile.DoSpawnNPC(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
             <summary></summary>
