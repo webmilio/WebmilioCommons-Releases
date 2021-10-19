@@ -4,165 +4,10 @@
         <name>WebmilioCommons</name>
     </assembly>
     <members>
-        <member name="M:WebmilioCommons.Achievements.Helper.ModAchievementHelper.RegisterAchievement(WebmilioCommons.Achievements.ModAchievement,System.Type)">
-            <summary>
-            If for some reason the ModAchievement Loader has not loaded the desired achievement, you can use this.
-            Under no circumstances should you load an achievement that is already loaded.
-            </summary>
-        </member>
-        <member name="T:WebmilioCommons.Achievements.ModAchievement">
-            <summary>This class serves as the public surface linking the vanilla achievement system and the modded achievement system together.</summary>
-        </member>
-        <member name="F:WebmilioCommons.Achievements.ModAchievement.DEFAULT_COMPLETION_FLAG">
-            <summary>The name of the default completion flag.</summary>
-        </member>
-        <member name="M:WebmilioCommons.Achievements.ModAchievement.#ctor(System.String,System.String,Terraria.Achievements.AchievementCategory)">
-            <summary></summary>
-            <param name="name">The displayed name for the achievement.</param>
-            <param name="description">The displayed description for the achievement.</param>
-            <param name="category">The vanilla category under to which this achievement belongs.</param>
-        </member>
-        <member name="M:WebmilioCommons.Achievements.ModAchievement.SetDefaults">
-            <summary>Called after the current object has been instantiated. You want to add your achievement conditions here.</summary>
-        </member>
-        <member name="M:WebmilioCommons.Achievements.ModAchievement.AddCondition(Terraria.Achievements.AchievementCondition)">
-            <summary>Add a condition for achievement completion.</summary>
-            <param name="condition">The condition to add.</param>
-        </member>
-        <member name="M:WebmilioCommons.Achievements.ModAchievement.AddConditions(Terraria.Achievements.AchievementCondition[])">
-            <summary>Add multiple conditions for achievement completion.</summary>
-            <param name="conditions">The conditions to add.</param>
-        </member>
-        <member name="M:WebmilioCommons.Achievements.ModAchievement.AddCompletionFlag">
-            <summary>Adds a default completion flag to be manually triggered with <see cref="M:WebmilioCommons.Achievements.ModAchievement.CompleteFlag"/>.</summary>
-        </member>
-        <member name="M:WebmilioCommons.Achievements.ModAchievement.AddCompletionFlag(System.String)">
-            <summary>Adds a named completion flag to be manually triggered with <see cref="M:WebmilioCommons.Achievements.ModAchievement.CompleteFlag"/>.</summary>
-            <param name="flag">The name of the flag.</param>
-        </member>
-        <member name="M:WebmilioCommons.Achievements.ModAchievement.CompleteFlag">
-            <summary>Completes the default completion flag.</summary>
-        </member>
-        <member name="M:WebmilioCommons.Achievements.ModAchievement.CompleteFlag(System.String)">
-            <summary>Completes the specified named completion flag.</summary>
-            <param name="flag">The name of the completion flag.</param>
-        </member>
-        <member name="M:WebmilioCommons.Achievements.ModAchievement.CompleteFlag(Terraria.Player)">
-            <summary>Completes the default completion flag if the given player is the local player.</summary>
-        </member>
-        <member name="M:WebmilioCommons.Achievements.ModAchievement.CompleteFlag(Terraria.Player,System.String)">
-            <summary>Completes the specified flag if the given player is the local player.</summary>
-            <param name="player"></param>
-            <param name="flag"></param>
-        </member>
-        <member name="M:WebmilioCommons.Achievements.ModAchievement.AddTracker">
-            <summary>Adds a tracker to the achievement, requiring a certain amount of tasks to be completed.</summary>
-        </member>
-        <member name="M:WebmilioCommons.Achievements.ModAchievement.CompleteFlag``1">
-            <summary>Completes the default completion flag for the specified type.</summary>
-            <typeparam name="T">The type of the <see cref="T:WebmilioCommons.Achievements.ModAchievement"/> to complete.</typeparam>
-        </member>
-        <member name="M:WebmilioCommons.Achievements.ModAchievement.CompleteFlag``1(Terraria.Player)">
-            <summary>Completes the default completion flag of the specified type for the specified player.</summary>
-            <typeparam name="T">The type of the <see cref="T:WebmilioCommons.Achievements.ModAchievement"/> to complete.</typeparam>
-            <param name="player">The player for whom to complete said flag.</param>
-        </member>
-        <member name="M:WebmilioCommons.Achievements.ModAchievement.CompleteFlag``1(System.String)">
-            <summary>Completes the given completion flag for the specified type.</summary>
-            <typeparam name="T">The type of the <see cref="T:WebmilioCommons.Achievements.ModAchievement"/> to complete.</typeparam>
-            <param name="flag">The name of the completion flag.</param>
-        </member>
-        <member name="M:WebmilioCommons.Achievements.ModAchievement.CompleteFlag``1(Terraria.Player,System.String)">
-            <summary>Completes the given completion flag of the specified type for the given player.</summary>
-            <typeparam name="T">The type of the <see cref="T:WebmilioCommons.Achievements.ModAchievement"/> to complete.</typeparam>
-            <param name="player">The player for whom to complete said flag.</param>
-            <param name="flag">The name of the completion flag.</param>
-        </member>
-        <member name="M:WebmilioCommons.Achievements.ModAchievement.CompleteFlagFor(System.String)">
-            <summary>Completes the default completion flag for the given achievement.</summary>
-            <param name="name">The name of the achievement.</param>
-        </member>
-        <member name="M:WebmilioCommons.Achievements.ModAchievement.CompleteFlagFor(Terraria.Player,System.String)">
-            <summary>Completes the default completion flag of the given achievement for the given player.</summary>
-            <param name="player">The player for whom to complete said flag.</param>
-            <param name="name">The name of the achievement.</param>
-        </member>
-        <member name="M:WebmilioCommons.Achievements.ModAchievement.CompleteFlagFor(System.String,System.String)">
-            <summary>Completes the default completion flag of the given achievement for the given player.</summary>
-            <param name="name">The name of the achievement.</param>
-            <param name="flag">The name of the completion flag.</param>
-        </member>
-        <member name="M:WebmilioCommons.Achievements.ModAchievement.CompleteFlagFor(System.String,Terraria.Player,System.String)">
-            <summary>Completes the specified completion flag of the given achievement for the given player.</summary>
-            <param name="name">The name of the achievement.</param>
-            <param name="player">The player for whom to complete said flag.</param>
-            <param name="flag">The name of the completion flag.</param>
-        </member>
-        <member name="P:WebmilioCommons.Achievements.ModAchievement.Name">
-            <summary>The displayed name for the achievement.</summary>
-        </member>
-        <member name="P:WebmilioCommons.Achievements.ModAchievement.Description">
-            <summary>The displayed description for the achievement.</summary>
-        </member>
-        <member name="P:WebmilioCommons.Achievements.ModAchievement.Category">
-            <summary>The vanilla category under which the achievement falls.</summary>
-        </member>
-        <member name="P:WebmilioCommons.Achievements.ModAchievement.TexturePath">
-            <summary>The path to the texture for the achievement.</summary>
-        </member>
-        <member name="P:WebmilioCommons.Achievements.ModAchievement.Autoload">
-            <summary>true if the achievement be automatically created upon loading all <see cref="T:WebmilioCommons.Achievements.ModAchievement"/>.</summary>
-        </member>
-        <member name="P:WebmilioCommons.Achievements.ModAchievement.Mod">
-            <summary>The mod from which this <see cref="T:WebmilioCommons.Achievements.ModAchievement"/> originates.</summary>
-        </member>
-        <member name="P:WebmilioCommons.Achievements.ModAchievement.GameAchievement">
-            <summary>The vanilla category under to which this achievement belongs.</summary>
-        </member>
         <member name="M:WebmilioCommons.Commands.StandardCommand.IsLoadingEnabled(Terraria.ModLoader.Mod)">
             <summary></summary>
             <param name="mod"></param>
             <returns></returns>
-        </member>
-        <member name="F:WebmilioCommons.Commons.ManagedResource.original">
-            <summary>Original ticks.</summary>
-        </member>
-        <member name="F:WebmilioCommons.Commons.ManagedResource.remaining">
-            <summary>Remaining ticks before expiration.</summary>
-        </member>
-        <member name="M:WebmilioCommons.Commons.ResourceManager.Finalize">
-            <summary>Allows an object to try to free resources and perform other cleanup operations before it is reclaimed by garbage collection.</summary>
-        </member>
-        <member name="M:WebmilioCommons.Commons.ResourceManager.Get(System.Predicate{System.IDisposable})">
-            <summary>Fetches an existing instance of a resource.</summary>
-            <param name="match">The match filter for the resource.</param>
-            <returns>The instance matching the filter; otherwise <c>null</c> if not found.</returns>
-        </member>
-        <member name="M:WebmilioCommons.Commons.ResourceManager.GetOrCreate(System.Predicate{System.IDisposable},System.Func{System.IDisposable},System.Int32)">
-            <summary>Fetches an existing instance of a resource or creates it if it doesn't exist.</summary>
-            <param name="match">The filter for the resource.</param>
-            <param name="create">The creation method for the resource.</param>
-            <param name="ticksToLive">How long the resource should be kept in memory after its last use, in ticks (1 tick = 1/60 of a second).</param>
-            <returns>The instance matching the filter or the created instance, depending on the <paramref name="create"/> parameter; otherwise <c>null</c> if not found.</returns>
-        </member>
-        <member name="M:WebmilioCommons.Commons.ResourceManager.Get``1(System.Predicate{``0})">
-            <summary>Fetches an existing instance of a resource.</summary>
-            <typeparam name="T">The type of resource to find.</typeparam>
-            <param name="match"></param>
-            <returns></returns>
-        </member>
-        <member name="M:WebmilioCommons.Commons.ResourceManager.GetOrCreate``1(System.Predicate{``0},System.Func{``0},System.Int32)">
-            <summary>Fetches an existing instance of a resource or creates it if it doesn't exist.</summary>
-            <typeparam name="T">The type of resource to look for.</typeparam>
-            <param name="match">The filter for the resource. If <c>default</c>, will find the first instance of the given type.</param>
-            <param name="create">The creation method for the resource.</param>
-            <param name="ticksToLive">How long the resource should be kept in memory after its last use, in ticks (1 tick = 1/60 of a second).</param>
-            <returns>The instance matching the filter or the created instance, depending on the <paramref name="create"/> parameter; otherwise <c>null</c> if not found.</returns>
-        </member>
-        <member name="M:WebmilioCommons.Commons.ResourceManager.ShouldPrune(System.IDisposable)">
-            <summary>Checks wether the resource should be disposed of next tick.</summary>
-            <param name="disposable">The resource to verify.</param>
-            <returns><c>true</c> if the resource should be disposed of; otherwise <c>false</c>.</returns>
         </member>
         <member name="M:WebmilioCommons.Extensions.ChestExtensions.AddItemToShop``1(Terraria.Chest,System.Int32@)">
             <summary>Adds an item to a shop. Use in <see cref="M:Terraria.ModLoader.GlobalNPC.SetupShop(System.Int32,Terraria.Chest,System.Int32@)"/>.</summary>
@@ -303,7 +148,7 @@
         <member name="M:WebmilioCommons.Loaders.Loader`1.Add(Terraria.ModLoader.Mod,`0)">
             <summary>
             Add an generic instance to the loaded items.
-            If <typeparamref name="T"/> implements <see cref="T:WebmilioCommons.Managers.IHasUnlocalizedName"/>, it will also register it using <see cref="P:WebmilioCommons.Managers.IHasUnlocalizedName.UnlocalizedName"/>.
+            If <typeparamref name="T"/> implements <see cref="!:IHasUnlocalizedName"/>, it will also register it using <see cref="!:IHasUnlocalizedName.UnlocalizedName"/>.
             </summary>
             <param name="mod">The <see cref="T:Terraria.ModLoader.Mod"/> from which the item comes.</param>
             <param name="item">A generic instance.</param>
@@ -333,8 +178,8 @@
         <member name="M:WebmilioCommons.Loaders.Loader`1.New(System.String)">
             <summary>Creates a new instance of the requested type.</summary>
             <param name="unlocalizedName">
-            The corresponding value for <see cref="P:WebmilioCommons.Managers.IHasUnlocalizedName.UnlocalizedName"/> of the desired type.
-            <typeparamref name="T"/> must implement <see cref="T:WebmilioCommons.Managers.IHasUnlocalizedName"/>.
+            The corresponding value for <see cref="!:IHasUnlocalizedName.UnlocalizedName"/> of the desired type.
+            <typeparamref name="T"/> must implement <see cref="!:IHasUnlocalizedName"/>.
             </param>
             <returns>The newly instantiated object; otherwise <c>default</c>.</returns>
         </member>
@@ -380,41 +225,6 @@
         </member>
         <member name="P:WebmilioCommons.Loaders.SingletonLoader`2.Instance">
             <summary>Unique TYPE instance (two same <see cref="!:TLoader"/> will have the same instance), instantiated and loaded upon first call.</summary>
-        </member>
-        <member name="M:WebmilioCommons.Managers.Manager`1.Initialize">
-            <summary>Called during <see cref="M:WebmilioCommons.Managers.Manager`1.TryInitialize"/>. You would usually store references to definition objects in this method.</summary>
-        </member>
-        <member name="M:WebmilioCommons.Managers.Manager`1.TryInitialize">
-            <summary>Tries initializing the current instance <see cref="T:WebmilioCommons.Managers.Manager`1"/> if it has not been initialized already.</summary>
-        </member>
-        <member name="M:WebmilioCommons.Managers.Manager`1.Add``1(``0)">
-            <summary>Tries adding an instance to the manager.</summary>
-            <typeparam name="TSub"></typeparam>
-            <param name="item"></param>
-            <returns>The new instance of an instance of the same <see cref="P:WebmilioCommons.Managers.IHasUnlocalizedName.UnlocalizedName"/> has not been found; the existing instance otherwise.</returns>
-        </member>
-        <member name="M:WebmilioCommons.Managers.Manager`1.Add``1">
-            <summary>Tries adding a generic instance (via new <see cref="!:TSub"/>()) to the manager.</summary>
-            <typeparam name="TSub"></typeparam>
-            <returns>The new instance of an instance of the same <see cref="P:WebmilioCommons.Managers.IHasUnlocalizedName.UnlocalizedName"/> has not been found; the existing instance otherwise.</returns>
-        </member>
-        <member name="M:WebmilioCommons.Managers.Manager`1.Where(System.Predicate{`0})">
-            <summary>Simple search that returns elements of the manager corresponding to the specified <see cref="T:System.Predicate`1"/>.</summary>
-            <param name="predicate"></param>
-            <returns></returns>
-        </member>
-        <member name="M:WebmilioCommons.Managers.Manager`1.GetRandom">
-            <summary>Returns a random <see cref="!:T"/> registered in the manager.</summary>
-            <returns></returns>
-        </member>
-        <member name="M:WebmilioCommons.Managers.Manager`1.TryGet(System.String,`0@)">
-            <summary>Tries obtaining an instance of <see cref="!:T"/> corresponding to the specified <param name="key">unlocalized name</param>.</summary>
-            <param name="key">The desired instance's unlocalized name.</param>
-            <param name="result"></param>
-            <returns>true if the instance was found; otherwise false.</returns>
-        </member>
-        <member name="P:WebmilioCommons.Managers.SingletonManager`2.Instance">
-            <summary>Unique TYPE instance (two same <see cref="!:TManager"/> will have the same instance), instantiated and initialized upon first call.</summary>
         </member>
         <member name="M:WebmilioCommons.WebmilioCommonsMod.Load">
             <summary></summary>
@@ -750,75 +560,6 @@
         <member name="P:WebmilioCommons.Tiles.BetterGlobalTile.MiningLookupRange">
             <summary>The maximum range for which to trigger CanKillTile with Player. Set to -1 to not have a distance limit. Default is 25.</summary>
         </member>
-        <member name="M:WebmilioCommons.Time.TimeAlterationRequest.#ctor">
-            <summary>Instantiates an empty standard <see cref="T:WebmilioCommons.Time.TimeAlterationRequest"/>.</summary>
-        </member>
-        <member name="M:WebmilioCommons.Time.TimeAlterationRequest.#ctor(Terraria.Player,System.Int32,System.Int32)">
-            <summary>Instantiates a standard <see cref="T:WebmilioCommons.Time.TimeAlterationRequest"/>.</summary>
-            <param name="player">The player who initiated the time alteration.</param>
-            <param name="duration">How long the time alteration should last.</param>
-            <param name="tickRate">The rate at which the world ticks for everything else than the source. Only tick rates of 0 or 1 are supposed as of yet.</param>
-        </member>
-        <member name="M:WebmilioCommons.Time.TimeAlterationRequest.#ctor(Terraria.NPC,System.Int32,System.Int32)">
-            <summary>Instantiates a standard <see cref="T:WebmilioCommons.Time.TimeAlterationRequest"/>.</summary>
-            <param name="npc">The player who initiated the time alteration.</param>
-            <param name="duration">How long the time alteration should last.</param>
-            <param name="tickRate">The rate at which the world ticks for everything else than the source. Only tick rates of 0 or 1 are supposed as of yet.</param>
-        </member>
-        <member name="M:WebmilioCommons.Time.TimeAlterationRequest.#ctor(Terraria.Projectile,System.Int32,System.Int32)">
-            <summary>Instantiates a standard <see cref="T:WebmilioCommons.Time.TimeAlterationRequest"/>.</summary>
-            <param name="projectile">The npc who initiated the time alteration.</param>
-            <param name="duration">How long the time alteration should last.</param>
-            <param name="tickRate">The rate at which the world ticks for everything else than the source. Only tick rates of 0 or 1 are supposed as of yet.</param>
-        </member>
-        <member name="M:WebmilioCommons.Time.TimeAlterationRequest.#ctor(Terraria.Item,System.Int32,System.Int32)">
-            <summary>Instantiates a standard <see cref="T:WebmilioCommons.Time.TimeAlterationRequest"/>.</summary>
-            <param name="item">The item which initiated the time alteration.</param>
-            <param name="duration">How long the time alteration should last.</param>
-            <param name="tickRate">The rate at which the world ticks for everything else than the source. Only tick rates of 0 or 1 are supposed as of yet.</param>
-        </member>
-        <member name="M:WebmilioCommons.Time.TimeAlterationRequest.#ctor(WebmilioCommons.Time.TimeAlterationRequest.Sources,System.Int32,System.Int32)">
-            <summary>
-            </summary>
-            <param name="sourceType"></param>
-            <param name="duration"></param>
-            <param name="tickRate">The rate at which the world ticks for everything else than the source. Only tick rates of 0 or 1 are supposed as of yet.</param>
-        </member>
-        <member name="M:WebmilioCommons.Time.TimeAlterationRequest.Send(WebmilioCommons.Networking.Packets.NetworkPacket,Terraria.ModLoader.ModPacket)">
-            <summary>Writes the request's information to the provided <see cref="T:Terraria.ModLoader.ModPacket"/>. To add information to the <see cref="T:Terraria.ModLoader.ModPacket"/>, override <see cref="M:WebmilioCommons.Time.TimeAlterationRequest.ModSend(WebmilioCommons.Networking.Packets.NetworkPacket,Terraria.ModLoader.ModPacket)"/>.</summary>
-            <param name="networkPacket"></param>
-            <param name="modPacket"></param>
-        </member>
-        <member name="M:WebmilioCommons.Time.TimeAlterationRequest.ModSend(WebmilioCommons.Networking.Packets.NetworkPacket,Terraria.ModLoader.ModPacket)">
-            <summary></summary>
-            <param name="networkPacket"></param>
-            <param name="modPacket"></param>
-        </member>
-        <member name="M:WebmilioCommons.Time.TimeAlterationRequest.Receive(WebmilioCommons.Networking.Packets.NetworkPacket,System.IO.BinaryReader)">
-            <summary>Reads the request's information to the provided <see cref="T:Terraria.ModLoader.ModPacket"/>. To receive additional information to the <see cref="T:Terraria.ModLoader.ModPacket"/>, override <see cref="M:WebmilioCommons.Time.TimeAlterationRequest.ModReceive(WebmilioCommons.Networking.Packets.NetworkPacket,System.IO.BinaryReader)"/>.</summary>
-            <param name="networkPacket"></param>
-            <param name="reader"></param>
-        </member>
-        <member name="M:WebmilioCommons.Time.TimeAlterationRequest.ModReceive(WebmilioCommons.Networking.Packets.NetworkPacket,System.IO.BinaryReader)">
-            <summary></summary>
-            <param name="networkPacket"></param>
-            <param name="modPacket"></param>
-        </member>
-        <member name="P:WebmilioCommons.Time.TimeAlterationRequest.LockedToSource">
-            <summary>
-            If true, the time alteration will only be able to be "toggled" (stopped midway) if the same person executes the required action.
-            Other entities/sources are unable to change the time state if this is true.
-            </summary>
-        </member>
-        <member name="T:WebmilioCommons.Time.TimeManagement">
-            <summary>Work-in-progress, feedback is highly appreciated on any crashes found.</summary>
-        </member>
-        <member name="M:WebmilioCommons.Time.TimeManagement.TryAlterTime(WebmilioCommons.Time.TimeAlterationRequest,System.Boolean)">
-            <summary></summary>
-            <param name="request"></param>
-            <param name="local">true if this comes from the local client; false if its from the network.</param>
-            <returns></returns>
-        </member>
         <member name="M:WebmilioCommons.Tinq.EntityExtensions.Active(Terraria.Entity)">
             <summary>Checks if the entity is considered active.</summary>
             <param name="entity">The entity to verify.</param>
@@ -949,11 +690,10 @@
             <param name="predicate">A function to test each element for a condition.</param>
             <returns>A <see cref="T:System.Collections.Generic.List`1"/> that contains entities from the input sequence that satisfy the condition and are active.</returns>
         </member>
-        <member name="P:WebmilioCommons.Transformations.PlayerTransformation.Unique">
-            <summary>
-            <c>true</c> if the only one instance of the transformation is allowed at a time per player; <c>false</c> otherwise.
-            Defaults to <c>true</c>.
-            </summary>
+        <member name="M:WebmilioCommons.Tinq.EntityExtensions.TownNPCs(System.Collections.Generic.IEnumerable{Terraria.NPC})">
+            <summary>Filters given collection for active town NPCs.</summary>
+            <param name="npcs"></param>
+            <returns></returns>
         </member>
         <member name="M:WebmilioCommons.Worlds.Generation.Structures.WorldStructure.Generate(System.Int32,System.Int32)">
             <summary>Generates the structure from the top-left to the bottom-right starting at the given coordinates.</summary>
