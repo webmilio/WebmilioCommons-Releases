@@ -9,6 +9,18 @@
             <param name="mod"></param>
             <returns></returns>
         </member>
+        <member name="M:WebmilioCommons.DependencyInjection.SimpleServices.AddService(System.Type,System.ComponentModel.Design.ServiceCreatorCallback)">
+            <summary>Adds a transient service to the collection.</summary>
+        </member>
+        <member name="M:WebmilioCommons.DependencyInjection.SimpleServices.AddService(System.Type,System.Object)">
+            <summary>Adds a singleton service to the collection.</summary>
+        </member>
+        <member name="M:WebmilioCommons.DependencyInjection.SimpleServices.AddService(System.Type,System.ComponentModel.Design.ServiceCreatorCallback,System.Boolean)">
+            <summary>Adds a transient service to the collection.</summary>
+        </member>
+        <member name="M:WebmilioCommons.DependencyInjection.SimpleServices.AddService(System.Type,System.Object,System.Boolean)">
+            <summary>Adds a singleton service to the collection.</summary>
+        </member>
         <member name="M:WebmilioCommons.Extensions.ChestExtensions.AddItemToShop``1(Terraria.Chest,System.Int32@)">
             <summary>Adds an item to a shop. Use in <see cref="M:Terraria.ModLoader.GlobalNPC.SetupShop(System.Int32,Terraria.Chest,System.Int32@)"/>.</summary>
             <typeparam name="T"></typeparam>
@@ -109,6 +121,11 @@
             <param name="type"></param>
             <returns></returns>
         </member>
+        <member name="M:WebmilioCommons.Helpers.ProxyHelper`1.Get``1">
+            <summary>Not optimal for actions called often, see <see cref="M:WebmilioCommons.Helpers.ProxyHelper`1.Do(System.Action{`0})"/></summary>
+            <typeparam name="V"></typeparam>
+            <returns>All instances of the specified type.</returns>
+        </member>
         <member name="M:WebmilioCommons.Helpers.VectorHelpers.OnCircle(Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,System.Single,System.Single)">
             <summary>Creates a point on a radius in a given direction. The point will always be on the circle, wether or not <paramref name="b">b</paramref> is inside or outside the radius.</summary>
             <param name="a"></param>
@@ -124,28 +141,37 @@
             <summary>Implements a property which specifies how big the starting item's stack should be.</summary>
         </member>
         <member name="T:WebmilioCommons.Loaders.IAssociatedToMod">
-            <summary>Implementing this interface will cause the loader to automatically feed the owner <see cref="T:Terraria.ModLoader.Mod"/> to the requested instance when using <see cref="!:Loader&lt;T&gt;.New(ushort)"/> or <see cref="M:WebmilioCommons.Loaders.Loader`1.New``1"/></summary>
+            <summary>Implementing this interface will cause the loader to automatically feed the owner <see cref="T:Terraria.ModLoader.Mod"/> to the requested instance when using <see cref="!:Loader&lt;T&gt;.New(ushort)"/> or <see cref="!:Loader&lt;T&gt;.New&lt;TType&gt;"/></summary>
         </member>
         <member name="M:WebmilioCommons.Loaders.Loader`1.#ctor">
             <summary>Instantiates a new <see cref="T:WebmilioCommons.Loaders.Loader`1"/> and loads all found subtypes of <see cref="!:T"/> that are not abstract.</summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "M:WebmilioCommons.Loaders.Loader`1.#ctor(System.Func{System.Reflection.TypeInfo,System.Boolean})" -->
-        <member name="M:WebmilioCommons.Loaders.Loader`1.TryLoad">
-            <summary>Tries loading the current loader instance if it has not already been loaded.</summary>
+        <member name="M:WebmilioCommons.Loaders.Loader`1.#ctor(System.Func{System.Reflection.TypeInfo,System.Boolean})">
+            <summary>
+            Instantiates a new <see cref="T:WebmilioCommons.Loaders.Loader`1"/> and loads all found subtypes of <see cref="!:T"/> that are not abstract and
+            match the specified <see cref="!:loadCondition" />load condition(s).
+            </summary>
+            <param name="loadCondition">The condition under which a subclass of <see cref="!:T"/> should be loaded.</param>
+        </member>
+        <member name="M:WebmilioCommons.Loaders.Loader`1.Load">
+            <summary>Finds and loads all instances of the specified type.</summary>
         </member>
         <member name="M:WebmilioCommons.Loaders.Loader`1.PreLoad">
-            <summary>Called directly after the initialization checks during <see cref="M:WebmilioCommons.Loaders.Loader`1.TryLoad"/>.</summary>
+            <summary>Called at the beginning of <see cref="M:WebmilioCommons.Loaders.Loader`1.Load"/>.</summary>
         </member>
         <member name="M:WebmilioCommons.Loaders.Loader`1.PostLoad">
-            <summary>Called at the end of <see cref="M:WebmilioCommons.Loaders.Loader`1.TryLoad"/>.</summary>
+            <summary>Called at the end of <see cref="M:WebmilioCommons.Loaders.Loader`1.Load"/>.</summary>
         </member>
-        <member name="M:WebmilioCommons.Loaders.Loader`1.PreUnload">
-            <summary>Called at the very beginning of the <see cref="M:WebmilioCommons.Loaders.Loader`1.Unload"/> method.</summary>
+        <member name="M:WebmilioCommons.Loaders.Loader`1.Load(Terraria.ModLoader.Mod,System.Reflection.TypeInfo)">
+            <summary>Called upon loading a single item.</summary>
         </member>
-        <member name="M:WebmilioCommons.Loaders.Loader`1.PostUnload">
-            <summary>Called at the very end of the <see cref="M:WebmilioCommons.Loaders.Loader`1.Unload"/> method.</summary>
+        <member name="M:WebmilioCommons.Loaders.PrototypeLoader`1.PreUnload">
+            <summary>Called at the very beginning of the <see cref="M:WebmilioCommons.Loaders.PrototypeLoader`1.Unload"/> method.</summary>
         </member>
-        <member name="M:WebmilioCommons.Loaders.Loader`1.Add(Terraria.ModLoader.Mod,`0)">
+        <member name="M:WebmilioCommons.Loaders.PrototypeLoader`1.PostUnload">
+            <summary>Called at the very end of the <see cref="M:WebmilioCommons.Loaders.PrototypeLoader`1.Unload"/> method.</summary>
+        </member>
+        <member name="M:WebmilioCommons.Loaders.PrototypeLoader`1.Add(Terraria.ModLoader.Mod,`0)">
             <summary>
             Add an generic instance to the loaded items.
             If <typeparamref name="T"/> implements <see cref="!:IHasUnlocalizedName"/>, it will also register it using <see cref="!:IHasUnlocalizedName.UnlocalizedName"/>.
@@ -154,82 +180,57 @@
             <param name="item">A generic instance.</param>
             <returns></returns>
         </member>
-        <member name="M:WebmilioCommons.Loaders.Loader`1.PostAdd(Terraria.ModLoader.Mod,`0)">
+        <member name="M:WebmilioCommons.Loaders.PrototypeLoader`1.PostAdd(Terraria.ModLoader.Mod,`0)">
             <summary>Called after each time a subclass is added to the generic instances database.</summary>
             <param name="mod">The mod from which the generic instance originates.</param>
             <param name="item">A generic instances created via <see cref="M:System.Activator.CreateInstance(System.Type)"/>.</param>
         </member>
-        <member name="M:WebmilioCommons.Loaders.Loader`1.PostAdd(Terraria.ModLoader.Mod,`0,System.Type)">
+        <member name="M:WebmilioCommons.Loaders.PrototypeLoader`1.PostAdd(Terraria.ModLoader.Mod,`0,System.Type)">
             <summary>Called after each time a subclass is added to the generic instances database.</summary>
             <param name="mod">The <see cref="T:Terraria.ModLoader.Mod"/> from which the generic instance originates.</param>
             <param name="item">A generic instance.</param>
             <param name="type">The <see cref="T:System.Type"/> from which the generic instance was created.</param>
         </member>
-        <member name="M:WebmilioCommons.Loaders.Loader`1.New(System.Int32)">
+        <member name="M:WebmilioCommons.Loaders.PrototypeLoader`1.New(System.Int32)">
             <summary>Creates a new instance of the requested type.</summary>
             <param name="id">The auto-assigned Id of the generic instance.</param>
             <returns>The newly instantiated type.</returns>
         </member>
-        <member name="M:WebmilioCommons.Loaders.Loader`1.New``1">
+        <member name="M:WebmilioCommons.Loaders.PrototypeLoader`1.New``1">
             <summary>Creates a new instance of the requested type.</summary>
             <typeparam name="TType">The type of the generic instance to create; must be a child of <typeparamref name="T"/> and a non-abstract <c>class</c>.</typeparam>
             <returns>The newly instantiated object.</returns>
         </member>
-        <member name="M:WebmilioCommons.Loaders.Loader`1.New(System.String)">
-            <summary>Creates a new instance of the requested type.</summary>
-            <param name="unlocalizedName">
-            The corresponding value for <see cref="!:IHasUnlocalizedName.UnlocalizedName"/> of the desired type.
-            <typeparamref name="T"/> must implement <see cref="!:IHasUnlocalizedName"/>.
-            </param>
-            <returns>The newly instantiated object; otherwise <c>default</c>.</returns>
-        </member>
-        <member name="M:WebmilioCommons.Loaders.Loader`1.GetId(`0)">
+        <member name="M:WebmilioCommons.Loaders.PrototypeLoader`1.GetId(`0)">
             <summary>Gets the Id of the generic instance of the same type as the one provided.</summary>
             <param name="item">The type of the generic instance.</param>
             <returns>The Id of the generic instance.</returns>
         </member>
-        <member name="M:WebmilioCommons.Loaders.Loader`1.GetId(System.Type)">
+        <member name="M:WebmilioCommons.Loaders.PrototypeLoader`1.GetId(System.Type)">
             <summary>Gets the Id of the generic instance of the same type as the one provided.</summary>
             <param name="type">The type of the generic instance.</param>
             <returns>The Id of the generic instance.</returns>
         </member>
-        <member name="M:WebmilioCommons.Loaders.Loader`1.GetId``1">
+        <member name="M:WebmilioCommons.Loaders.PrototypeLoader`1.GetId``1">
             <summary>Gets the Id of the generic instance of the same type as the one provided.</summary>
             <typeparam name="TType">The type of the generic instance.</typeparam>
             <returns>The Id of the generic instance.</returns>
         </member>
-        <member name="M:WebmilioCommons.Loaders.Loader`1.GetId(System.String)">
-            <summary>
-            Gets the Id of the generic instance with the provided unlocalized name.
-            <see cref="P:WebmilioCommons.Loaders.Loader`1.TypeHasUnlocalizedName"/> must be true.
-            </summary>
-            <param name="unlocalizedName">The unlocalized name of the generic instance.</param>
-            <returns>The Id of the generic instance if found; otherwise <c>default</c>.</returns>
-        </member>
-        <member name="M:WebmilioCommons.Loaders.Loader`1.FindGeneric(System.Predicate{`0})">
+        <member name="M:WebmilioCommons.Loaders.PrototypeLoader`1.FindGeneric(System.Predicate{`0})">
             <summary>Searches for a generic instance that matches the conditions defined by the specified predicate.</summary>
             <param name="condition">The <see cref="T:System.Predicate`1"/> delegate that defines the conditions of the generic instance to search for.</param>
             <returns>The generic instance that matches the conditions defined by the specified predicate, if found; otherwise, the default value for type T.</returns>
         </member>
-        <member name="P:WebmilioCommons.Loaders.Loader`1.Generics">
+        <member name="P:WebmilioCommons.Loaders.PrototypeLoader`1.Generics">
             <summary>An <see cref="T:System.Collections.Generic.IEnumerable`1"/> that contains all instances created during load (generics).</summary>
         </member>
-        <member name="P:WebmilioCommons.Loaders.Loader`1.Count">
+        <member name="P:WebmilioCommons.Loaders.PrototypeLoader`1.Count">
             <summary>How many subtypes of <see cref="!:T"/> have been loaded.</summary>
         </member>
-        <member name="P:WebmilioCommons.Loaders.Loader`1.FirstIndex">
-            <summary>The first auto-assigned Id given to the generic instances.</summary>
-        </member>
-        <member name="P:WebmilioCommons.Loaders.Loader`1.NextIndex">
-            <summary>The next auto-assigned Id for the next added generic instance.</summary>
-        </member>
-        <member name="P:WebmilioCommons.Loaders.SingletonLoader`2.Instance">
+        <member name="P:WebmilioCommons.Loaders.SingletonPrototypeLoader`2.Instance">
             <summary>Unique TYPE instance (two same <see cref="!:TLoader"/> will have the same instance), instantiated and loaded upon first call.</summary>
         </member>
         <member name="M:WebmilioCommons.WebmilioCommonsMod.Load">
-            <summary></summary>
-        </member>
-        <member name="M:WebmilioCommons.WebmilioCommonsMod.PostSetupContent">
             <summary></summary>
         </member>
         <member name="M:WebmilioCommons.WebmilioCommonsMod.Unload">
@@ -477,6 +478,11 @@
             <param name="pvp"></param>
             <param name="damageSource"></param>
             <returns>The custom death message.</returns>
+        </member>
+        <member name="M:WebmilioCommons.Players.BetterModPlayer.PreCraftItem(Terraria.Recipe)">
+            <summary>Only called on the local client.</summary>
+            <param name="recipe"></param>
+            <returns><c>true</c> to continue with the item crafting; otherwise <c>false</c>.</returns>
         </member>
         <member name="M:WebmilioCommons.Projectiles.StandardProjectile.StandardAnimateFrame(System.Int32,System.Int32)">
             <summary></summary>
