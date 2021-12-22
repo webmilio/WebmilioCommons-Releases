@@ -121,8 +121,8 @@
             <param name="type"></param>
             <returns></returns>
         </member>
-        <member name="M:WebmilioCommons.Helpers.ProxyHelper`1.Get``1">
-            <summary>Not optimal for actions called often, see <see cref="M:WebmilioCommons.Helpers.ProxyHelper`1.Do(System.Action{`0})"/></summary>
+        <member name="M:WebmilioCommons.Helpers.ProxyHelper`2.Get``1">
+            <summary>Not optimal for actions called often, see <see cref="M:WebmilioCommons.Helpers.ProxyHelper`2.Do(System.Action{`0})"/></summary>
             <typeparam name="V"></typeparam>
             <returns>All instances of the specified type.</returns>
         </member>
