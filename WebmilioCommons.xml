@@ -610,12 +610,6 @@
             <param name="predicate">A function to test each element for a condition.</param>
             <returns></returns>
         </member>
-        <member name="M:WebmilioCommons.Tinq.EntityExtensions.Do``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})">
-            <summary>Executes a provided action on a sequence of elements. If the provided sequence implements <see cref="T:System.Collections.Generic.IList`1"/>, the iteration is done through a <c>for</c>, otherwise it is done through a <c>foreach</c>.</summary>
-            <typeparam name="T">The type of <paramref name="source"/>.</typeparam>
-            <param name="source"></param>
-            <param name="action">The action to execute on each element of the sequence.</param>
-        </member>
         <member name="M:WebmilioCommons.Tinq.EntityExtensions.DoActive``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})">
             <summary>Executes a provided action on a sequence of entities. The sequence is filtered by active before the action is executed.</summary>
             <typeparam name="T">The entity type of <paramref name="entities"/>.</typeparam>
